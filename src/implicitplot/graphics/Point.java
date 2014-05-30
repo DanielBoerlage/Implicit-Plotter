@@ -1,4 +1,4 @@
-package graphics;
+package implicitplot.graphics;
 
 public class Point
 {

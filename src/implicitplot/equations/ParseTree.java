@@ -1,4 +1,4 @@
-package equations;
+package implicitplot.equations;
 
 import java.util.ArrayList;
 

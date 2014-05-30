@@ -1,4 +1,4 @@
-package equations;
+package implicitplot.equations;
 
 public class Variable extends ParseTree {
     

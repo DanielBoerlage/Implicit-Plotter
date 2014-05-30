@@ -1,4 +1,4 @@
-package graphics;
+package implicitplot.graphics;
 import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Graphics;
