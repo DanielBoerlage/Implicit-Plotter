@@ -1,4 +1,4 @@
-package implicit.plotter;
+package equations;
 
 public class ImplicitPlotter {
 
