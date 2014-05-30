@@ -1,8 +1,8 @@
-package graphics;
+package implicitplot.graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Client
+public class Client  // todo: move program entry point to Main class
 {
     public static final int HEIGHT = 400;
     public static final int WIDTH = 600;
