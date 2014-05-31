@@ -8,7 +8,7 @@ public class Client  // todo: move program entry point to Main class
     public static final int WIDTH = 600;
     static GraphPanel panel;
     
-    public static void run(){
+    public static void guiInit(){
         JFrame frame = new JFrame();
         panel = new GraphPanel();
         frame.setVisible(true);
