@@ -1,4 +1,7 @@
 package implicitplot;
+
+import implicitplot.equations.*;
+
 public class Main {
 
 	public static void main(String[] args) {
