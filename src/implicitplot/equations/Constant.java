@@ -1,10 +1,10 @@
 package implicitplot.equations;
 
-public class Number extends ParseTree {
+public class Constant extends ParseTree {
     
     private final double value;
     
-    public Number(double value) {
+    public Constant(double value) {
         super();
         this.value = value;
     }
