@@ -15,7 +15,17 @@ public class Equation {
     	while(eqnString.charAt(parseIndex) != '(' && eqnString.charAt(parseIndex) != '$')
             parseIndex++;
         if(eqnString.charAt(parseIndex) == '(')
-            root = new Function("hi");
+            root = new Function(eqnString.substring(0, parseIndex));
+        else if(eqnString.charAt(parseIndex) == '$') {
+            double value;
+            try {
+                value = new Double(eqnString.substring(0, parseIndex));
+                root = new Constant(value);
+            } catch (NumberFormatException e) {
+                root = new Variable(eqnString.substring(0, parseIndex));
+            }
+        System.out.println(root.evaluate(1d,2d));
+        }
     }
 
     void createTree(ParseTree parent) {  // modifies param parent
