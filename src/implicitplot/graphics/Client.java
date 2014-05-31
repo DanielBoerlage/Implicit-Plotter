@@ -2,7 +2,7 @@ package implicitplot.graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Client  // todo: move program entry point to Main class
+public class Client
 {
     public static int HEIGHT;
     public static int WIDTH;
