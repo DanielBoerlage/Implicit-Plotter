@@ -6,18 +6,18 @@ package implicitplot.graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Client
+public class Client extends JFrame
 {
     public final static int HEIGHT = 600;
     public final static int WIDTH = 800;
-    static GraphPanel panel;
+    GraphPanel panel;
     
-    public static void guiInit(){
-        JFrame frame = new JFrame();
+    public Client(){
+        super();
         panel = new GraphPanel();
-        frame.setVisible(true);
-        frame.setBounds(50, 50, WIDTH, HEIGHT);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.setBounds(50, 50, WIDTH, HEIGHT);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         //test
         for(int i = 10; i > 0; i--){
@@ -27,7 +27,7 @@ public class Client
             }
         }
         
-        frame.add(panel);
+        this.add(panel);
         panel.repaint();
     }
 }

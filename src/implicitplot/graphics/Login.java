@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class Login {
 
+
 	public static void run() {
 
 		//Components
@@ -55,8 +56,13 @@ public class Login {
             {
             	//int x = Integer.parseInt(width.getText());
             	//int y = Integer.parseInt(height.getText());
-                implicitplot.graphics.Client.guiInit();
+                runClient();
             }
         });
 	}
+
+    public static void runClient(){
+        Client client = new Client();
+    }
+
 }
