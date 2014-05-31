@@ -1,3 +1,7 @@
+//Open-Sourced
+//Author - Philip Xu 2014
+
+
 package implicitplot.graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;

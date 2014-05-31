@@ -1,3 +1,7 @@
+//Open-Sourced
+//Author - Philip Xu 2014
+//		 - Daniel Boerlage 2014
+
 package implicitplot;
 
 import implicitplot.equations.*;

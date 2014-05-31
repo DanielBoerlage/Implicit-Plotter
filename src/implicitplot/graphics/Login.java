@@ -1,3 +1,6 @@
+//Open-Sourced
+//Author - Philip Xu 2014
+
 package graphics;
 import javax.swing.*;
 import java.awt.*;
