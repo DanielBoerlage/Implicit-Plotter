@@ -4,12 +4,38 @@ import java.util.Iterator;
 
 public class Function extends ParseTree {
     
-    public enum Type {NEG, PLUS, MINUS, MULT, DIV};
+    public enum Type {
+        DEFAULT, NEG, PLUS, MINUS, MULT, DIV
+    };
     private final Type type;
     
     public Function(Type type) {
         super();
         this.type = type;
+    }
+
+    public Function(String typeString) {
+        super();
+        switch(typeString.toLowerCase()) {
+            case "neg": case "negate": case "negative":
+                type = Type.NEG;
+                break;
+            case "plus": case "sum":
+                type = Type.PLUS;
+                break;
+            case "minus": case "subtract":
+                type = Type.MINUS;
+                break;
+            case "mult": case "multiply":
+                type = Type.MULT;
+                break;
+            case "div": case "divide":
+                type = Type.DIV;
+                break;
+            default:
+                type = Type.DEFAULT;
+                break;
+        }
     }
     
     @Override
@@ -36,6 +62,6 @@ public class Function extends ParseTree {
             case DIV:
                 return children[0].evaluate(var1, var2) / children[1].evaluate(var1, var2);
         }
-        return 0d / 0d;  // NaN
+        return Double.NaN;
     }
 }

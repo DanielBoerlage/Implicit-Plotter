@@ -9,7 +9,7 @@ import implicitplot.equations.*;
 public class Main {
 
 	public static void main(String[] args) {
-		graphics.Login.run();
+		//graphics.Login.run();
 		//eqnTest();
 	}
 
