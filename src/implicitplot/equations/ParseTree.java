@@ -9,5 +9,5 @@ abstract public class ParseTree {
     protected ParseTree() {
     }
    
-    abstract protected double evaluate();
+    abstract protected double evaluate(double var1, double var2);
 }

@@ -4,13 +4,13 @@ public class Number extends ParseTree {
     
     private final double value;
     
-    public Number(ParseTree parent, double value) {
-        super(parent);
+    public Number(double value) {
+        super();
         this.value = value;
     }
     
     @Override
-    public double evaluate() {
+    public double evaluate(double var1, double var2) {
         return value;
     }
 }

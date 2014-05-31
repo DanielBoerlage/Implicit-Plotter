@@ -2,26 +2,18 @@ package implicitplot.equations;
 
 public class Variable extends ParseTree {
     
-    public enum Type {X, Y, R, THETA};
+    public enum Type {X, Y, THETA, R};
     private final Type type;
-    private double value;
     
-    public Variable(ParseTree parent, Type type) {
-        super(parent);
+    public Variable(Type type) {
+        super();
         this.type = type;
     }
     
-    public Variable(ParseTree parent, Type type, double value) {
-        this(parent, type);
-        this.value = value;
-    }
-    
-    public void set(double value) {
-        this.value = value;
-    }
-    
     @Override
-    public double evaluate() {
-        return value;
+    public double evaluate(double var1, double var2) {
+        if(type == Type.X || type == Type.THETA)
+            return var1;
+        return var2;
     }
 }
