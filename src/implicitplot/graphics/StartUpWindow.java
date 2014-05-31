@@ -1,18 +1,21 @@
 //Open-Sourced
 //Author - Philip Xu 2014
 
-package graphics;
+package implicitplot.graphics;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Login {
+public class StartUpWindow {
 
+    static JFrame Window;
 	public static void run() {
-
+        
+        //initializing the frame
+        Window = new JFrame("Hi");
 		//Components
-		JFrame login = new JFrame("Hi");
+		
 		JPanel panel = new JPanel();
         JLabel title = new JLabel("implicit Plotter");
         JLabel about = new JLabel("Created by Philip Xu & Daniel Boerlage 2014");
@@ -22,14 +25,14 @@ public class Login {
 
         Dimension screenSize = 
                     Toolkit.getDefaultToolkit().getScreenSize(); //rtn: dimension of client-side monitor
-        login.setUndecorated(true);  
-		login.add(panel);
-		login.setVisible(true);
-        login.setBounds((int)(screenSize.getWidth()/2 - 200),  // sets frame to be the center of client screen
+        Window.setUndecorated(true);  
+		Window.add(panel);
+		Window.setVisible(true);
+        Window.setBounds((int)(screenSize.getWidth()/2 - 200),  // sets frame to be the center of client screen
                         (int)(screenSize.getHeight()/2 - 100), 
                         440,  // these are dimensions of frame
                         130); //
-        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //adding all the components to panel
 
@@ -55,8 +58,14 @@ public class Login {
             {
             	//int x = Integer.parseInt(width.getText());
             	//int y = Integer.parseInt(height.getText());
-                implicitplot.graphics.Client.guiInit();
+                runClient();
+                Window.setVisible(false);
             }
         });
 	}
+
+    public static void runClient(){
+        Client client = new Client();
+    }
+
 }
