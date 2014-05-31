@@ -4,11 +4,13 @@ import javax.swing.JPanel;
 
 public class Client  // todo: move program entry point to Main class
 {
-    public static final int HEIGHT = 400;
-    public static final int WIDTH = 600;
+    public static int HEIGHT;
+    public static int WIDTH;
     static GraphPanel panel;
     
-    public static void guiInit(){
+    public static void guiInit(int w, int h){
+        WIDTH = w;
+        HEIGHT = h;
         JFrame frame = new JFrame();
         panel = new GraphPanel();
         frame.setVisible(true);
