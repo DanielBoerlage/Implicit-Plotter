@@ -3,6 +3,6 @@ package implicitplot;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("hi");
+		implicitplot.graphics.Client.run();
 	}
 }

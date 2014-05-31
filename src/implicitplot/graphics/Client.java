@@ -8,7 +8,7 @@ public class Client  // todo: move program entry point to Main class
     public static final int WIDTH = 600;
     static GraphPanel panel;
     
-    public static void main(String args[]){
+    public static void run(){
         JFrame frame = new JFrame();
         panel = new GraphPanel();
         frame.setVisible(true);
@@ -17,7 +17,7 @@ public class Client  // todo: move program entry point to Main class
         
         //test
         for(int i = 10; i > 0; i--){
-            for (int j = 15; i > 5; j--){
+            for (int j = 15; j > 5; j--){
                 Point p = new Point(i *10,j*10);
                 panel.addPoint(p);
             }
