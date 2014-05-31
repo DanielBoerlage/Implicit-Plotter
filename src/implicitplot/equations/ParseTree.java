@@ -10,7 +10,7 @@ abstract public class ParseTree {
     	children = new ParseTree[0];
     }
 
-    public void addChild(ParseTree parseTree) {
+    public ParseTree addChild(ParseTree parseTree) {
     	ParseTree[] newChildren = new ParseTree[children.length + 1];
     	for(int i = 0; i < children.length; i++)
     		newChildren[i] = children[i];
@@ -18,6 +18,7 @@ abstract public class ParseTree {
     	children = new ParseTree[newChildren.length];
     	for(int i = 0; i < children.length; i++)
     		children[i] = newChildren[i];
+        return parseTree;
     }
 
     abstract public double evaluate(double var1, double var2);

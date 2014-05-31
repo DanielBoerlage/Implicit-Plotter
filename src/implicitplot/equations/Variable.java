@@ -27,7 +27,7 @@ public class Variable extends ParseTree {
                 break;
             default:
                 type = Type.DEFAULT;
-                break;      
+                break;    
         }
     }
     
