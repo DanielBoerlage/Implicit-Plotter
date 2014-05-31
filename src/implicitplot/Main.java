@@ -9,7 +9,7 @@ import implicitplot.equations.*;
 public class Main {
 
 	public static void main(String[] args) {
-
+		/*
 		//Components
 		JFrame login = new JFrame();
 		JPanel panel = new JPanel();
@@ -53,7 +53,8 @@ public class Main {
             	int y = Integer.parseInt(height.getText());
                 implicitplot.graphics.Client.guiInit(x,y);
             }
-        });
+        });*/
+		eqnTest();
 	}
 
 	public static void eqnTest() {
@@ -82,7 +83,7 @@ public class Main {
 
 		long startTime = System.currentTimeMillis();
 		double var = 0;
-		for(int i = 0; i < 100000001; i++)
+		for(int i = 0; i < 100001; i++)
 			var = tree.evaluate(var, 0);
 		System.out.println("result: " + var + "  computed in " + (System.currentTimeMillis() - startTime) + " ms");
 	}
