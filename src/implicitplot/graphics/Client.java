@@ -51,11 +51,18 @@ public class Client extends JFrame
     }
 
     public void test(){
-        for(int i = 0; i < 20; i++){
-            for (int j = 0; j <= i; j++){
-                Point p = new Point(i *10,j*10);
-                graphPanel.addPoint(p);
-            }
+        for(int i = 0; i <= 360; i += 1){
+            Point p = new Point(
+                                (int)(Math.cos(Math.toRadians((double)i)) * 100),
+                                (int)(Math.sin(Math.toRadians((double)i)) * 100));
+            graphPanel.addPoint(p);
+        }
+
+        for(int i = -500; i <= 500; i += 1){
+            Point p = new Point(
+                                i,
+                                (int)(Math.sin(Math.toRadians((double)i)) * 100));
+            graphPanel.addPoint(p);
         }
     }
 }
