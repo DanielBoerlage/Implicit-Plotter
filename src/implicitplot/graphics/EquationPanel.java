@@ -17,7 +17,7 @@ public class EquationPanel extends JPanel{
 	}
 
 	public void setGUI(){
-		addEquation = new JButton("Add");
+		addEquation = new JButton("Add"); 
 		this.setLayout(null);
 		Dimension buttonSize = addEquation.getPreferredSize();
 		addEquation.setBounds((int)(this.getSize().width - buttonSize.width),
@@ -25,6 +25,7 @@ public class EquationPanel extends JPanel{
 							(int)(buttonSize.width),
 							(int)(buttonSize.height));
 		this.add(addEquation);
+		
 		this.setBackground(Color.BLACK);
 	}
 
