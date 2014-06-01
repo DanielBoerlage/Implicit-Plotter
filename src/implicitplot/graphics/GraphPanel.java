@@ -70,8 +70,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         for(int i = 0; i < pointsList.size(); i++){
             g2d.fillOval(pointsList.get(i).getX() + (int)(this.getSize().width/2),
                          pointsList.get(i).getY() + (int)(this.getSize().height/2),
-                         5,
-                         5);
+                         3,
+                         3);
         }
     }
 
