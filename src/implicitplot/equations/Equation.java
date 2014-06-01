@@ -2,7 +2,7 @@ package implicitplot.equations;
 
 public class Equation {
     
-	public ParseTree root; 
+	private ParseTree root; 
 	private String parseBuffer, eqnString;
 	private int parseIndex;
 
@@ -36,7 +36,7 @@ public class Equation {
                     parseBuffer = "";
                     parseIndex++;
                     if(parseChar == ')' || parseChar == '$')
-                        return;
+                        return; // todo: $ truly aborts recursive root
                     break;
                 default:
                     parseBuffer = parseBuffer + parseChar;
@@ -46,5 +46,24 @@ public class Equation {
         }
     }
 
-    
+    public double evaluate(double var1, double var2) {
+        return root.evaluate(var1, var2);
+    }
+
+    public double[] solveVar2at(double var1) {
+        return new double[0];
+    }
+
+    public double newtonsMethod(double guess, double var2) {
+        double precision = 1e-8, xNew = guess, xOld;
+        do {
+            xOld = xNew;
+            xNew = xOld - root.evaluate(xOld, var2) / derrivative(xOld, var2);
+        } while(Math.abs(xOld - xNew) > precision);
+        return xNew;
+    }
+
+    public double derrivative(double var1, double var2) {
+        return (root.evaluate(var1 + 1e-8, var2) - root.evaluate(var1 - 1e-8, var2)) / 2e-8;
+    }
 } 
