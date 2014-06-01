@@ -2,11 +2,11 @@ package implicitplot.equations;
 
 import java.util.ArrayList;
 
-abstract public class ParseTree {
+public class ParseTree {
     
     public ParseTree[] children;
     
-    protected ParseTree() {
+    public ParseTree() {
     	children = new ParseTree[0];
     }
 
@@ -21,5 +21,9 @@ abstract public class ParseTree {
         return parseTree;
     }
 
-    abstract public double evaluate(double var1, double var2);
+    public double evaluate(double var1, double var2) {
+        if(children.length < 1)
+            return Double.NaN;
+        return children[0].evaluate(var1, var2);
+    }
 }

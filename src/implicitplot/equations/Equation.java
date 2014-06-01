@@ -2,54 +2,44 @@ package implicitplot.equations;
 
 public class Equation {
     
-	ParseTree root; 
-	String parseBuffer, eqnString;
-	int parseIndex;
+	public ParseTree root; 
+	private String parseBuffer, eqnString;
+	private int parseIndex;
 
     public Equation(String eqnString) {
-        root = new Constant(1d);  // TEMP!!!!!
     	parseBuffer = new String();
     	parseIndex = 0;
+        eqnString = eqnString + "$";  // $ denotes end of string
     	this.eqnString = eqnString;
-    	eqnString = eqnString + "$";  // $ denotes end of string
-
-    	while(eqnString.charAt(parseIndex) != '(' && eqnString.charAt(parseIndex) != '$')
-            parseIndex++;
-        parseBuffer = eqnString.substring(0, parseIndex);
-        if(eqnString.charAt(parseIndex) == '(')
-            root = new Function(parseBuffer);
-        else if(eqnString.charAt(parseIndex) == '$')
-            root = constantOrVariable();
-        parseIndex++;
+        root = new ParseTree();
+        createTree(root);
     }
 
-    private ParseTree constantOrVariable() {
-        try {
-            return new Constant(new Double(parseBuffer));
-        } catch (NumberFormatException e) {
-            return new Variable(parseBuffer);
-        }
-    }
-
-    void createTree(ParseTree parent) {  // modifies param parent
-        while(true) {  // todo : avoid infinite loop
-            switch(eqnString.charAt(parseIndex)) {
+    private void createTree(ParseTree parent) {  // modifies param parent
+        for(int counter = 0; counter < 1000; counter++) {  // If user enters mismatching parentheses this counter will prevent an infinite loop
+            char parseChar = eqnString.charAt(parseIndex);
+            switch(parseChar) {
                 case '(':
-                    // stuff
-                    break;
-                case ')':
-                    parent.addChild(constantOrVariable());
+                    String tempStr = parseBuffer;
                     parseBuffer = "";
                     parseIndex++;
-                    return;
-                case ',':
-                    // stuff
+                    createTree(parent.addChild(new Function(tempStr)));
                     break;
-                case '$':
-                    //if ()
+                case ',': case ')': case '$':
+                    if(parseBuffer.length() > 0) {
+                        try {
+                            parent.addChild(new Constant(new Double(parseBuffer)));
+                        } catch (NumberFormatException e) {
+                            parent.addChild(new Variable(parseBuffer));
+                        }
+                    }
+                    parseBuffer = "";
+                    parseIndex++;
+                    if(parseChar == ')' || parseChar == '$')
+                        return;
                     break;
                 default:
-                    parseBuffer = parseBuffer + eqnString.charAt(parseIndex);
+                    parseBuffer = parseBuffer + parseChar;
                     parseIndex++;
                     break;    
             }
