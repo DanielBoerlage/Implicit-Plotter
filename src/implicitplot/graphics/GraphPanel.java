@@ -6,17 +6,23 @@ import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
-public class GraphPanel extends JPanel{
+public class GraphPanel extends JPanel implements MouseMotionListener{
     ArrayList<Point> pointsList;
+    public int mouseX = 0;
+    public int mouseY = 0;
+
     public GraphPanel(){
         super();
         pointsList = new ArrayList<Point>();
+        this.addMouseMotionListener(this);
     }
 
     public void panelSetup(){
         this.setOpaque(true);
-        this.setBackground(Color.black);
+        this.setBackground(Color.BLACK);
     }
     
     public void addPoint(Point point){
@@ -28,8 +34,17 @@ public class GraphPanel extends JPanel{
         graphBackgroundColorSetup(g2d);
         paintPoints(g2d);
         graphSetup(g2d);
-        
-        
+        positionDisplaySetup(g2d);
+    }
+
+    public void positionDisplaySetup(Graphics2D g2d){
+        g2d.setColor(Color.BLACK);
+        String posiX = "X: " + mouseX;
+        String posiY = "Y: " + mouseY;
+        Font font = new Font("Serif", Font.PLAIN, 20);
+        g2d.setFont(font);
+        g2d.drawString(posiX,10,20);
+        g2d.drawString(posiY,10,40);
     }
 
     public void graphBackgroundColorSetup(Graphics2D g2d){
@@ -60,4 +75,15 @@ public class GraphPanel extends JPanel{
         }
     }
 
+    public void mouseMoved(MouseEvent e){
+        mouseX = e.getPoint().x - (int)(this.getSize().width/2);
+        mouseY = (e.getPoint().y - (int)(this.getSize().height/2)) * (-1);
+        this.repaint();
+        //System.out.println(mouseX + ", " + mouseY);
+    }
+
+    public void mouseDragged(MouseEvent evt){
+        //Useless
+    }
 }
+
