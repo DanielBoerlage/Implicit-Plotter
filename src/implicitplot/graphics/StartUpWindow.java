@@ -34,11 +34,15 @@ public class StartUpWindow {
                         130); //
         Window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
         //adding all the components to panel
 
         panel.add(title);
         panel.add(about);
         panel.add(start);
+        panel.setBackground(Color.BLUE);
+        title.setForeground(Color.YELLOW);
+        about.setForeground(Color.YELLOW);
 
         //positioning setup
         

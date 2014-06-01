@@ -16,6 +16,8 @@ public class GraphPanel extends JPanel{
     public GraphPanel(){
         super();
         pointsList = new ArrayList<Point>();
+        this.setOpaque(true);
+        this.setBackground(Color.black);
     }
     
     public void addPoint(Point point){
@@ -24,6 +26,8 @@ public class GraphPanel extends JPanel{
     
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.BLUE);
+        g2d.fillRect(0,0,this.getSize().width,this.getSize().height);
         g2d.setColor(Color.MAGENTA);
         for(int i = 0; i < pointsList.size(); i++){
             g2d.fillOval(pointsList.get(i).getX() + 100, pointsList.get(i).getY() + 100, 10, 10);
