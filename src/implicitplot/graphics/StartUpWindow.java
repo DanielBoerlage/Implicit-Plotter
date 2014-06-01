@@ -4,44 +4,71 @@
 package implicitplot.graphics;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class StartUpWindow {
 
-    static JFrame Window;
+    static JFrame window;
+    static JPanel panel;
+    static JLabel title, about;
+    static JButton start;
+
 	public static void run() {
-        
+        componentsInit();
+		frameSetup();
+        addComponents();
+        setComponentsPositions();
+
+        //Button Listener
+        buttonConfig();
+	}
+
+    public static void buttonConfig(){
+        start.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                //int x = Integer.parseInt(width.getText());
+                //int y = Integer.parseInt(height.getText());
+                runClient();
+                window.setVisible(false);
+            }
+        });
+    }
+
+    public static void componentsInit(){
         //initializing the frame
-        Window = new JFrame("Hi");
-		//Components
-		
-		JPanel panel = new JPanel();
-        JLabel title = new JLabel("Implicit Plotter");
-        JLabel about = new JLabel("Created by Philip Xu & Daniel Boerlage 2014");
-        JButton start = new JButton("Start");
+        window = new JFrame("Hi");
+        //Components
+        
+        panel = new JPanel();
+        title = new JLabel("Implicit Plotter");
+        about = new JLabel("Created by Philip Xu & Daniel Boerlage 2014");
+        start = new JButton("Start");
+    }
 
-		//Frame setup
-
+    public static void frameSetup(){
         Dimension screenSize = 
                     Toolkit.getDefaultToolkit().getScreenSize(); //rtn: dimension of client-side monitor
-        Window.setUndecorated(true);  
-		Window.add(panel);
-		Window.setVisible(true);
-        Window.setBounds((int)(screenSize.getWidth()/2 - 200),  // sets frame to be the center of client screen
+        window.setUndecorated(true);  
+        window.add(panel);
+        window.setVisible(true);
+        window.setBounds((int)(screenSize.getWidth()/2 - 200),  // sets frame to be the center of client screen
                         (int)(screenSize.getHeight()/2 - 100), 
                         440,  // these are dimensions of frame
                         130); //
-        Window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
-        //adding all the components to panel
-
+    public static void addComponents(){
         panel.add(title);
         panel.add(about);
         panel.add(start);
+        panel.setBackground(Color.BLUE);
+        title.setForeground(Color.YELLOW);
+        about.setForeground(Color.YELLOW);
+    }
 
-        //positioning setup
-        
+    public static void setComponentsPositions(){
         panel.setLayout(null);  //Freestyle layout
         Insets insets = panel.getInsets(); 
         Dimension titleSize = title.getPreferredSize();
@@ -49,23 +76,11 @@ public class StartUpWindow {
         title.setBounds(25 + insets.left, 30 + insets.top,titleSize.width, titleSize.height);
         about.setBounds(25 + insets.left, 80 + insets.top,aboutSize.width, aboutSize.height);
         start.setBounds(340,30,70,70);
-
-        
-
-        //Button Listener
-        start.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e)
-            {
-            	//int x = Integer.parseInt(width.getText());
-            	//int y = Integer.parseInt(height.getText());
-                runClient();
-                Window.setVisible(false);
-            }
-        });
-	}
+    }
 
     public static void runClient(){
         Client client = new Client();
     }
 
+    
 }
