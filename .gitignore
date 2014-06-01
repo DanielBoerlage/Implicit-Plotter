@@ -1,9 +1,9 @@
 # binaries
-
 *.class
 *.jar
 
-
 # build file
-
 build.xml
+
+# javadocs
+javadoc/
