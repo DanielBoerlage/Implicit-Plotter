@@ -26,6 +26,9 @@ public class Function extends ParseTree {
             case "minus": case "subtract":
                 return children[0].evaluate(var1, var2) - children[1].evaluate(var1, var2);
 
+            case "diff": case "difference":
+                return Math.abs(children[0].evaluate(var1, var2) - children[1].evaluate(var1, var2));
+
             case "mult": case "multiply":
                 double product = 1d;
                 for(ParseTree p : children)
