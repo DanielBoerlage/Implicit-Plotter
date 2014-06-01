@@ -16,6 +16,9 @@ public class GraphPanel extends JPanel{
     public GraphPanel(){
         super();
         pointsList = new ArrayList<Point>();
+    }
+
+    public void panelSetup(){
         this.setOpaque(true);
         this.setBackground(Color.black);
     }

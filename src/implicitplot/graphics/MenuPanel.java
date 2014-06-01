@@ -13,38 +13,46 @@ public class MenuPanel extends JPanel{
 
 	public MenuPanel(){
 		super();
-		this.setLayout(null);
+		menuBarSetup();
+		panelSetup();
+	}
 
+	public void panelSetup(){
+		this.setLayout(null);
+		this.add(menuBar);
+	}
+
+	public void menuBarSetup(){
 		menuBar = new JMenuBar();
-		
+		fileMenuSetup();
+		preferencesMenuSetup();
+		menuBar.add(file);
+		menuBar.add(preferences);
+		menuBar.setBounds(0,0,menuBar.getPreferredSize().width,menuBar.getPreferredSize().height);
+	}
+
+	public void fileMenuSetup(){
 		file = new JMenu("Files");
-		preferences = new JMenu("Preferences");
-		
 		file_open = new JMenuItem("Open");
 		file_save = new JMenuItem("Save");
 		file_add = new JMenuItem("Add");
 		file_etc = new JMenuItem("Etc.");
 
-		preferences_options = new JMenuItem("Options");
-		preferences_colors = new JMenuItem("Colors");
-		
 		file.add(file_open);
 		file.add(file_save);
 		file.addSeparator();
 		file.add(file_open);
 		file.addSeparator();
 		file.add(file_etc);
+	}
 
+	public void preferencesMenuSetup(){
+		preferences = new JMenu("Preferences");
+		preferences_options = new JMenuItem("Options");
+		preferences_colors = new JMenuItem("Colors");
 		preferences.add(preferences_colors);
 		preferences.addSeparator();
 		preferences.add(preferences_options);
-
-		menuBar.add(file);
-		menuBar.add(preferences);
-
-		menuBar.setBounds(0,0,menuBar.getPreferredSize().width,menuBar.getPreferredSize().height);
-		this.add(menuBar);
 	}
-
 
 }
