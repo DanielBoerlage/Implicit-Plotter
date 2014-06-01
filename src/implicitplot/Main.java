@@ -9,7 +9,7 @@ import implicitplot.equations.*;
 public class Main {
 
 	public static void main(String[] args) {
-		//implicitplot.graphics.StartUpWindow.run();
+		implicitplot.graphics.StartUpWindow.run();
 		//eqnTest();
 		Equation eqn = new Equation("mult(plus(1,x),plus(1,1,1),neg(y))))");  // (x+1)*(1+1+1)*(-y)
 		System.out.println(eqn.root.evaluate(3, 1/2.0));

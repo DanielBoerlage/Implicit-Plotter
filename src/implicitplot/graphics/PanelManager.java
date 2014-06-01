@@ -1,8 +1,8 @@
 package implicitplot.graphics;
 
 public class PanelManager{
-	public int height;
-    public int width;
-
-
+	public static int frameHeight;
+    public static int frameWidth;
+    
+    
 }

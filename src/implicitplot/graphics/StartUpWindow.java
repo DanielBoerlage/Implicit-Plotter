@@ -17,7 +17,7 @@ public class StartUpWindow {
 		//Components
 		
 		JPanel panel = new JPanel();
-        JLabel title = new JLabel("implicit Plotter");
+        JLabel title = new JLabel("Implicit Plotter");
         JLabel about = new JLabel("Created by Philip Xu & Daniel Boerlage 2014");
         JButton start = new JButton("Start");
 
