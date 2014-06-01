@@ -12,7 +12,7 @@ public class Main {
 
 		//implicitplot.graphics.StartUpWindow.run();
 
-		Equation eqn = new Equation("");
+		Equation eqn = new Equation("sin(x)$ could also go  cos(minus(HALF_PI,x))  just for fun");
 		double approxPi = eqn.newtonsMethod(2, 0);
 		System.out.println("approximation of pi from sin(x) = 0:   " + approxPi);
 	}

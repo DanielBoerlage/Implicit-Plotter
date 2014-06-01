@@ -151,8 +151,6 @@ public class Function extends ParseTree {
                 for(ParseTree p : children)
                     sum += p.evaluate(var1, var2);
                 return sum / children.length;
-
-
         }
         return Double.NaN;
     }
