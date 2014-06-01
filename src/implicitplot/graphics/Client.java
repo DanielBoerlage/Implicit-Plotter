@@ -27,10 +27,10 @@ public class Client extends JFrame
         ImageIcon icon = new ImageIcon("implicitplot/icon.gif");
         this.setIconImage(icon.getImage());
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setBounds( (int)(screenSize.getWidth()/2 - 400),
-                        (int)(screenSize.getHeight()/2 - 325), 
-                         800, 
-                         600 );
+        this.setBounds( (int)(screenSize.getWidth()/2 - 409),
+                        (int)(screenSize.getHeight()/2 - 350), 
+                         818, 
+                         640 );
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
