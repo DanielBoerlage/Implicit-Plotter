@@ -24,8 +24,9 @@ public class Client extends JFrame
     public void frameSetup(){ //set up the frame
         this.setLayout(null); 
         this.setVisible(true);
-        ImageIcon icon = new ImageIcon("implicitplot/icon.gif");
-        this.setIconImage(icon.getImage());
+        ImageIcon icon = new ImageIcon("src/icon.gif");
+        this.setIconImage(Toolkit.getDefaultToolkit() 
+                        .getImage("/res/images/icon/icon.gif"));
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setBounds( (int)(screenSize.getWidth()/2 - 409),
                         (int)(screenSize.getHeight()/2 - 350), 
