@@ -25,7 +25,7 @@ public class EquationPanel extends JPanel{
 							(int)(buttonSize.width),
 							(int)(buttonSize.height));
 		this.add(addEquation);
-		
+
 		this.setBackground(Color.BLACK);
 	}
 

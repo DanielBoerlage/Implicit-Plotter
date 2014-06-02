@@ -34,8 +34,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         graphBackgroundColorSetup(g2d);
-        paintPoints(g2d);
         graphSetup(g2d);
+        paintPoints(g2d);
         positionDisplaySetup(g2d);
     }
 
