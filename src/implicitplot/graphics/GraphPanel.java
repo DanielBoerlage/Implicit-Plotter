@@ -38,7 +38,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(3));
+        g2d.setStroke(new BasicStroke(2));
         g2d.drawLine(
                      0,
                      (int)(this.getSize().height/2),
