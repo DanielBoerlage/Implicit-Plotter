@@ -33,6 +33,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON);
         graphBackgroundColorSetup(g2d);
         graphSetup(g2d);
         paintPoints(g2d);
@@ -77,8 +79,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         for(int i = 0; i < pointsList.size(); i++){
             g2d.fillOval(pointsList.get(i).getX() + (int)(this.getSize().width/2),
                          pointsList.get(i).getY() + (int)(this.getSize().height/2),
-                         3,
-                         3);
+                         4,
+                         4);
         }
     }
 

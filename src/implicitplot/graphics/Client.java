@@ -61,7 +61,7 @@ public class Client extends JFrame
         for(int i = -400; i <= 400; i += 1){//y = sin(x)
             Point p = new Point(
                                 i,
-                                (int)(Math.sin(Math.toRadians((double)i)) * 100));
+                                (int)(Math.tan(Math.toRadians((double)i)) * 100));
             graphPanel.addPoint(p);
         }
     }
