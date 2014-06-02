@@ -21,11 +21,6 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         pointsList = new ArrayList<Point>();
         this.addMouseMotionListener(this);
     }
-
-    public void panelSetup(){//not used...
-        this.setOpaque(true);
-        this.setBackground(Color.BLACK);
-    }
     
     public void addPoint(Point point){//TO-DO: implement xScale and yScale
         this.pointsList.add(point);
@@ -33,31 +28,16 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON);
+        
         graphBackgroundColorSetup(g2d);
         graphSetup(g2d);
         paintPoints(g2d);
         positionDisplaySetup(g2d);
     }
 
-    public void positionDisplaySetup(Graphics2D g2d){//this set up the x and y position display
-        g2d.setColor(Color.BLACK);
-        String posiX = "X: " + mouseX;
-        String posiY = "Y: " + mouseY;
-        //Font font = new Font("Eras Bold ITC", Font.PLAIN, 20);
-        //g2d.setFont(font);
-        // ^ those two lines make it look pretty but really really slow, to be fixed.
-        g2d.drawString(posiX,10,20);
-        g2d.drawString(posiY,10,40);
-    }
-
-    public void graphBackgroundColorSetup(Graphics2D g2d){//paints the background of a color.
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(0,0,this.getSize().width,this.getSize().height);
-    }
-
     public void graphSetup(Graphics2D g2d){//draws the x,y axis
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(3));
         g2d.drawLine(
@@ -74,6 +54,11 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
                     );
     }
 
+    public void graphBackgroundColorSetup(Graphics2D g2d){//paints the background of a color.
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(0,0,this.getSize().width,this.getSize().height);
+    }
+
     public void paintPoints(Graphics2D g2d){ // this paints the points
         g2d.setColor(Color.MAGENTA);
         for(int i = 0; i < pointsList.size(); i++){
@@ -82,6 +67,17 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
                          4,
                          4);
         }
+    }
+
+    public void positionDisplaySetup(Graphics2D g2d){//this set up the x and y position display
+        g2d.setColor(Color.BLACK);
+        String posiX = "X: " + mouseX;
+        String posiY = "Y: " + mouseY;
+        //Font font = new Font("Eras Bold ITC", Font.PLAIN, 20);
+        //g2d.setFont(font);
+        // ^ those two lines make it look pretty but really really slow, to be fixed.
+        g2d.drawString(posiX,10,20);
+        g2d.drawString(posiY,10,40);
     }
 
     public void mouseMoved(MouseEvent e){ // this is called every tick the mouse is moved.

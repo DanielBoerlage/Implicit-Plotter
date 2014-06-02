@@ -57,6 +57,8 @@ public class StartUpWindow {
                         440,  // these are dimensions of frame
                         130); //
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ImageIcon icon = new ImageIcon("res/images/icon/icon.gif");
+        window.setIconImage(icon.getImage());
     }
 
     public static void addComponents(){

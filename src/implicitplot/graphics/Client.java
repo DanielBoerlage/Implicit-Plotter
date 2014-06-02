@@ -25,7 +25,6 @@ public class Client extends JFrame
         this.setLayout(null); 
         this.setVisible(true);
         ImageIcon icon = new ImageIcon("res/images/icon/icon.gif");
-
         this.setIconImage(icon.getImage());
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setBounds( (int)(screenSize.getWidth()/2 - 409),
