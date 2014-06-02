@@ -34,9 +34,9 @@ public class Client extends JFrame
     }
 
     public void panelSetup(){ //set up the various panels
-        graphPanel = new GraphPanel();
-        equationPanel = new EquationPanel();
-        menuPanel = new MenuPanel();
+        graphPanel = new GraphPanel(new Dimension(500,577));
+        equationPanel = new EquationPanel(new Dimension(300,577));
+        menuPanel = new MenuPanel(new Dimension(600,23));
 
         equationPanel.setBounds(0,23,300,577);
         graphPanel.setBounds(300,23,500,577);

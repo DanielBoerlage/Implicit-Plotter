@@ -9,23 +9,38 @@ public class EquationPanel extends JPanel{
 	
 	public int width, height, x, y;
 	private JButton addEquation;
+	private Dimension size;
+	ArrayList<FunctionSubpanel> functionList;
 
-	public EquationPanel(){
+	public EquationPanel(Dimension d){
 		super();
-		setGUI();
+		this.size = d;
+		this.functionList = new ArrayList<FunctionSubpanel>();
+		guiSetup();
+		buttonSetup();
 	}
 
-	public void setGUI(){
-		addEquation = new JButton("Add"); 
-		this.setLayout(null);
-		Dimension buttonSize = addEquation.getPreferredSize();
-		addEquation.setBounds((int)(this.getSize().width - buttonSize.width),
-							(int)(this.getSize().height - buttonSize.height),
-							(int)(buttonSize.width),
-							(int)(buttonSize.height));
+	public void addFunctionSubpanel(FunctionSubpanel subpanel){
+		this.functionList.add(subpanel);
+		this.repaint();
+	}
+
+	public void buttonSetup(){
+		addEquation = new JButton("Add");
+		addEquation.setBounds((int)(this.getPreferredSize().width - 100),
+							(int)(this.getPreferredSize().height - 60),
+							80,
+							40);
 		this.add(addEquation);
-
-		this.setBackground(Color.BLACK);
+		System.out.println(this.getPreferredSize().width + "  " + this.getPreferredSize().height);
 	}
 
+	public void guiSetup(){
+		this.setLayout(null);
+		this.setBackground(Color.BLUE);
+	}
+
+	public Dimension getPreferredSize(){
+		return this.size;
+	}
 }

@@ -10,13 +10,15 @@ import java.awt.event.MouseMotionListener;
 
 public class GraphPanel extends JPanel implements MouseMotionListener{
     ArrayList<Point> pointsList;
+    private Dimension size;
     public int mouseX = 0;
     public int mouseY = 0;
     public int xScale = 1;
     public int yScale = 1;
 
-    public GraphPanel(){
+    public GraphPanel(Dimension d){
         super();
+        this.size = d;
         pointsList = new ArrayList<Point>();
         this.addMouseMotionListener(this);
     }
@@ -88,6 +90,10 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
 
     public void mouseDragged(MouseEvent evt){
         //Useless
+    }
+
+    public Dimension getPreferredSize(){
+        return this.size;
     }
 }
 

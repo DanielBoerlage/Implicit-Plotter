@@ -5,16 +5,22 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MenuPanel extends JPanel{
+	private Dimension size;
 	JMenuBar menuBar;
 	JMenu file, preferences;
 	JMenuItem file_open,file_save,file_add,file_etc;
 	JMenuItem preferences_options, preferences_colors;
 
-	public MenuPanel(){
+	public MenuPanel(Dimension d){
 		super();
+		this.size = d;
 		menuBarSetup();
 		panelSetup();
 	}
+
+	public Dimension getPreferredSize(){
+        return this.size;
+    }
 
 	public void panelSetup(){
 		this.setLayout(null);
