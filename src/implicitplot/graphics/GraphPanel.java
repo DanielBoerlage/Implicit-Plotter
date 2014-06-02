@@ -33,40 +33,52 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         graphBackgroundColorSetup(g2d);
         graphSetup(g2d);
         paintPoints(g2d);
+        graphBorderSetup(g2d);
         positionDisplaySetup(g2d);
     }
 
+    public void graphBorderSetup(Graphics2D g2d){
+        g2d.setStroke(new BasicStroke(4));
+        g2d.setColor(new Color(151, 195, 10));
+        g2d.drawRect(
+                     1,
+                     1,
+                     (int)(this.getPreferredSize().width) - 3,
+                     (int)(this.getPreferredSize().height) - 3
+                    );
+    }
+    
     public void graphSetup(Graphics2D g2d){//draws the x,y axis
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(2));
+        g2d.setStroke(new BasicStroke(1));
         g2d.drawLine(
                      0,
-                     (int)(this.getSize().height/2),
-                     (int)(this.getSize().width),
-                     (int)(this.getSize().height/2)
+                     (int)(this.getPreferredSize().height/2),
+                     (int)(this.getPreferredSize().width),
+                     (int)(this.getPreferredSize().height/2)
                     );
         g2d.drawLine(
-                     (int)(this.getSize().width/2),
+                     (int)(this.getPreferredSize().width/2),
                      0,
-                     (int)(this.getSize().width)/2,
-                     (int)(this.getSize().height)
+                     (int)(this.getPreferredSize().width/2),
+                     (int)(this.getPreferredSize().height)
                     );
     }
 
     public void graphBackgroundColorSetup(Graphics2D g2d){//paints the background of a color.
         g2d.setColor(Color.WHITE);
-        g2d.fillRect(0,0,this.getSize().width,this.getSize().height);
+        g2d.fillRect(0,0,this.getPreferredSize().width,this.getPreferredSize().height);
     }
 
     public void paintPoints(Graphics2D g2d){ // this paints the points
         g2d.setColor(Color.MAGENTA);
         for(int i = 0; i < pointsList.size(); i++){
-            g2d.fillOval(pointsList.get(i).getX() + (int)(this.getSize().width/2),
-                         pointsList.get(i).getY() + (int)(this.getSize().height/2),
-                         4,
-                         4);
+            g2d.fillOval(pointsList.get(i).getX() + (int)(this.getPreferredSize().width/2),
+                         pointsList.get(i).getY() + (int)(this.getPreferredSize().height/2),
+                         5,
+                         5);
         }
     }
 
@@ -82,8 +94,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     }
 
     public void mouseMoved(MouseEvent e){ // this is called every tick the mouse is moved.
-        mouseX = e.getPoint().x - (int)(this.getSize().width/2);
-        mouseY = (e.getPoint().y - (int)(this.getSize().height/2)) * (-1);
+        mouseX = e.getPoint().x - (int)(this.getPreferredSize().width/2);
+        mouseY = (e.getPoint().y - (int)(this.getPreferredSize().height/2)) * (-1);
         this.repaint();
         //System.out.println(mouseX + ", " + mouseY);
     }
@@ -96,4 +108,5 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         return this.size;
     }
 }
+
 

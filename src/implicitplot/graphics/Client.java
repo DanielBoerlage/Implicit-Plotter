@@ -16,7 +16,7 @@ public class Client extends JFrame
         super("Implicit Plotter");
         frameSetup();
         panelSetup();
-        addPanel();
+        addPanels();
         test(); // making a bunch of points to paint
     }
 
@@ -43,7 +43,7 @@ public class Client extends JFrame
         menuPanel.setBounds(0,0,600,23);
     } 
 
-    public void addPanel(){ //add the panels to frame
+    public void addPanels(){ //add the panels to frame
         this.add(equationPanel);
         this.add(graphPanel);
         this.add(menuPanel);
