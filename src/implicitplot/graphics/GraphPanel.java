@@ -43,8 +43,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         g2d.setColor(Color.BLACK);
         String posiX = "X: " + mouseX;
         String posiY = "Y: " + mouseY;
-        Font font = new Font("Eras Bold ITC", Font.PLAIN, 20);
-        g2d.setFont(font);
+        //Font font = new Font("Eras Bold ITC", Font.PLAIN, 20);
+        //g2d.setFont(font);
         g2d.drawString(posiX,10,20);
         g2d.drawString(posiY,10,40);
     }
