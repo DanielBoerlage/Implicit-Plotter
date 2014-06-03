@@ -3,6 +3,7 @@
 // file LICENSE or http://www.gnu.org/licenses/gpl-3.0.html
 
 package implicitplot.graphics;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
