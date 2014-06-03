@@ -4,6 +4,9 @@
 
 package implicitplot.equations;
 
+/**
+ * @author Daniel Boerlage
+ */
 public class Variable extends ParseTree {
     
     private final String type;

@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * @author Philip Xu
+ */
 public class GraphPanel extends JPanel implements MouseMotionListener{
     ArrayList<Point> pointsList;
     private Dimension size;

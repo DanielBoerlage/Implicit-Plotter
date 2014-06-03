@@ -4,8 +4,10 @@
 
 package implicitplot.graphics;
 
-public class Point
-{
+/**
+ * @author Philip Xu
+ */
+public class Point {
     private int x;
     private int y;
     

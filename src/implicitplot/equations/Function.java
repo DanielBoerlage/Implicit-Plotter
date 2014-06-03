@@ -6,6 +6,9 @@ package implicitplot.equations;
 
 import java.util.Iterator;
 
+/**
+ * @author Daniel Boerlage
+ */
 public class Function extends ParseTree {
     
     private final String type;

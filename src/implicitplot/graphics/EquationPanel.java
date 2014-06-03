@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * @author Philip Xu
+ */
 public class EquationPanel extends JPanel{
 	
 	public int width, height, x, y;

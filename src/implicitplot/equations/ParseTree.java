@@ -6,6 +6,9 @@ package implicitplot.equations;
 
 import java.util.ArrayList;
 
+/**
+ * @author Daniel Boerlage
+ */
 public class ParseTree {
     
     public ParseTree[] children;

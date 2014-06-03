@@ -9,6 +9,9 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * @author Philip Xu
+ */
 public class FunctionSubpanel extends JPanel{
 	
 	ArrayList<Point> pointsList;

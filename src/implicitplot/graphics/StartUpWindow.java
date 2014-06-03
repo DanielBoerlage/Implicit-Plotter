@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * @author Philip Xu
+ */
 public class StartUpWindow {
 
     static JFrame window;

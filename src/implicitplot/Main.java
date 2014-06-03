@@ -6,6 +6,10 @@ package implicitplot;
 
 import implicitplot.equations.*;
 
+/**
+ * @author Philip Xu
+ * @author Daniel Boerlage
+ */
 public class Main {
 
 	public static void main(String[] args) {

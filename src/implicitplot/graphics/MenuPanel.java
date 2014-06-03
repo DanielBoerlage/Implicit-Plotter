@@ -7,6 +7,9 @@ package implicitplot.graphics;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * @author Philip Xu
+ */
 public class MenuPanel extends JPanel{
 	private Dimension size;
 	JMenuBar menuBar;

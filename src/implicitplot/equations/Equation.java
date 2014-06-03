@@ -4,6 +4,9 @@
 
 package implicitplot.equations;
 
+/**
+ * @author Daniel Boerlage
+ */
 public class Equation {
     
 	private ParseTree root; 

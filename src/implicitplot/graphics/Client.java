@@ -3,11 +3,15 @@
 // file LICENSE or http://www.gnu.org/licenses/gpl-3.0.html
 
 package implicitplot.graphics;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Client extends JFrame
-{
+/**
+ * @author Philip Xu
+ */
+public class Client extends JFrame {
+
     GraphPanel graphPanel;
     EquationPanel equationPanel;
     MenuPanel menuPanel;
