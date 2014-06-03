@@ -7,7 +7,7 @@ package implicitplot.equations;
 /**
  * @author Daniel Boerlage
  */
-public class ExplicitFunction extends Eqaution {
+public class ExplicitFunction extends Equation {
 	
 	public ExplicitFunction(String funcString) {
 		super(funcString);
