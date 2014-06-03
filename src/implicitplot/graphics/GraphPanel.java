@@ -11,16 +11,22 @@ import java.awt.event.MouseMotionListener;
 public class GraphPanel extends JPanel implements MouseMotionListener{
     ArrayList<Point> pointsList;
     private Dimension size;
+    private int pointSize;
     public int mouseX = 0;
     public int mouseY = 0;
-    public int xScale = 1;
-    public int yScale = 1;
+    public double xScale = 3.14;
+    public double yScale = 3.14;
 
     public GraphPanel(Dimension d){
         super();
+        this.pointSize = 4;
         this.size = d;
         pointsList = new ArrayList<Point>();
         this.addMouseMotionListener(this);
+    }
+
+    public void setPointSize(int size){
+        this.pointSize = size;
     }
     
     public void addPoint(Point point){//TO-DO: implement xScale and yScale
@@ -39,7 +45,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
 
     public void graphBorderSetup(Graphics2D g2d){
         g2d.setStroke(new BasicStroke(4));
-        g2d.setColor(new Color(151, 195, 10));
+        g2d.setColor(new Color(0, 120, 10));
         g2d.drawRect(
                      1,
                      1,
@@ -65,6 +71,58 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
                      (int)(this.getPreferredSize().width/2),
                      (int)(this.getPreferredSize().height)
                     );
+        graphDrawScale(g2d);
+        
+    }
+
+    public void graphDrawScale(Graphics2D g2d){
+        for(int x = (int)(this.getPreferredSize().width/2);
+            x <= (int)(this.getPreferredSize().width); 
+            x += (int)(xScale * 25))
+        {
+            g2d.drawLine(
+                     x,
+                     (int)(this.getPreferredSize().height/2) - 2,
+                     x,
+                     (int)(this.getPreferredSize().height/2) + 2
+                    );
+        }
+
+        for(int x = (int)(this.getPreferredSize().width/2);
+            x >= -(int)(this.getPreferredSize().width); 
+            x -= (int)(xScale * 25))
+        {
+            g2d.drawLine(
+                     x,
+                     (int)(this.getPreferredSize().height/2) - 2,
+                     x,
+                     (int)(this.getPreferredSize().height/2) + 2
+                    );
+        }
+
+        for(int y = (int)(this.getPreferredSize().height/2);
+            y >= -(int)(this.getPreferredSize().height); 
+            y -= (int)(yScale * 25))
+        {
+            g2d.drawLine(
+                     (int)(this.getPreferredSize().width/2) - 2,
+                     y,
+                     (int)(this.getPreferredSize().width/2) + 2,
+                     y
+                    );
+        }
+
+        for(int y = (int)(this.getPreferredSize().height/2);
+            y <= (int)(this.getPreferredSize().height); 
+            y += (int)(yScale * 25))
+        {
+            g2d.drawLine(
+                     (int)(this.getPreferredSize().width/2) - 2,
+                     y,
+                     (int)(this.getPreferredSize().width/2) + 2,
+                     y
+                    );
+        }
     }
 
     public void graphBackgroundColorSetup(Graphics2D g2d){//paints the background of a color.
@@ -75,10 +133,10 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     public void paintPoints(Graphics2D g2d){ // this paints the points
         g2d.setColor(Color.MAGENTA);
         for(int i = 0; i < pointsList.size(); i++){
-            g2d.fillOval(pointsList.get(i).getX() + (int)(this.getPreferredSize().width/2),
-                         pointsList.get(i).getY() + (int)(this.getPreferredSize().height/2),
-                         5,
-                         5);
+            g2d.fillOval(pointsList.get(i).getX() + (int)(this.getPreferredSize().width/2) - this.pointSize/2,
+                         pointsList.get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
+                         this.pointSize,
+                         this.pointSize);
         }
     }
 

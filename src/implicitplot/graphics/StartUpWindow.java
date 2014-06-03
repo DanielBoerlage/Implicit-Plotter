@@ -64,9 +64,9 @@ public class StartUpWindow {
         panel.add(title);
         panel.add(about);
         panel.add(start);
-        panel.setBackground(Color.BLUE);
-        title.setForeground(Color.YELLOW);
-        about.setForeground(Color.YELLOW);
+        panel.setBackground(new Color(0,102,204));
+        title.setForeground(new Color(255,215,0));
+        about.setForeground(new Color(255,215,0));
     }
 
     public static void setComponentsPositions(){
@@ -74,7 +74,7 @@ public class StartUpWindow {
         Insets insets = panel.getInsets(); 
         Dimension titleSize = title.getPreferredSize();
         Dimension aboutSize = about.getPreferredSize();
-        title.setBounds(25 + insets.left, 30 + insets.top,titleSize.width, titleSize.height);
+        title.setBounds(25 + insets.left, 35 + insets.top,titleSize.width, titleSize.height);
         about.setBounds(25 + insets.left, 80 + insets.top,aboutSize.width, aboutSize.height);
         start.setBounds(340,30,70,70);
     }

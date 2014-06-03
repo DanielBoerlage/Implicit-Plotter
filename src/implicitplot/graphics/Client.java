@@ -50,30 +50,51 @@ public class Client extends JFrame
     }
 
     public void test(){
+
+        //Point p = new Point(0,0);
+        //graphPanel.addPoint(p);
+
+        
         for(int i = 0; i <= 360; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
             Point p = new Point(
-                                (int)(Math.cos(Math.toRadians((double)i)) * 100),
-                                (int)(Math.sin(Math.toRadians((double)i)) * 100));
+                                (int)(Math.cos(Math.toRadians((double)i)) * 50),
+                                (int)(Math.sin(Math.toRadians((double)i)) * 50));
             graphPanel.addPoint(p);
         }
+
+        for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+            Point p = new Point(
+                                (int)(Math.toRadians((double)i) * 25),
+                                (int)(Math.sin(Math.toRadians((double)i))  * 50));
+            graphPanel.addPoint(p);
+        }
+
+        for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+            Point p = new Point(
+                                (int)(Math.toRadians((double)i) * 25),
+                                (int)(Math.cos(Math.toRadians((double)i))  * 50));
+            graphPanel.addPoint(p);
+        }
+
+        /*
 
         for(int i = -400; i <= 400; i += 1){//y = sin(x)
             Point p = new Point(
                                 i,
-                                (int)(Math.tan(Math.toRadians((double)i)) * 100));
+                                (int)(Math.tan(Math.toRadians((double)i)) * 50));
             graphPanel.addPoint(p);
         }
 
         for(int i = -400; i <= 400; i += 1){//y = sin(x)
             Point p = new Point(
-                                (int)(Math.tan(Math.toRadians((double)i)) * 100),
+                                (int)(Math.tan(Math.toRadians((double)i)) * 50),
                                 i);
             graphPanel.addPoint(p);
         }
 
         for(int i = -400; i <= 400; i += 1){//y = sin(x)
             Point p = new Point(
-                                -(int)(Math.tan(Math.toRadians((double)i)) * 100),
+                                -(int)(Math.tan(Math.toRadians((double)i)) * 50),
                                 i);
             graphPanel.addPoint(p);
         }
@@ -81,10 +102,10 @@ public class Client extends JFrame
         for(int i = -400; i <= 400; i += 1){//y = sin(x)
             Point p = new Point(
                                 i,
-                                -(int)(Math.tan(Math.toRadians((double)i)) * 100));
+                                -(int)(Math.tan(Math.toRadians((double)i)) * 50));
             graphPanel.addPoint(p);
         }
-
+        */
 
     }
 }
