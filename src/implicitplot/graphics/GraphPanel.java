@@ -14,8 +14,10 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     private int pointSize;
     public int mouseX = 0;
     public int mouseY = 0;
-    public double xScale = 3.14;
-    public double yScale = 3.14;
+    public double xScale = 3.14 / 2;
+    public double yScale = 3.14 / 2;
+    public double xZoom = 25;
+    public double yZoom = 25;
 
     public GraphPanel(Dimension d){
         super();

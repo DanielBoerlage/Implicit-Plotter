@@ -69,13 +69,6 @@ public class Client extends JFrame
             graphPanel.addPoint(p);
         }
 
-        for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
-            Point p = new Point(
-                                (int)(Math.toRadians((double)i) * 25),
-                                (int)(Math.cos(Math.toRadians((double)i))  * 50));
-            graphPanel.addPoint(p);
-        }
-
         /*
 
         for(int i = -400; i <= 400; i += 1){//y = sin(x)
