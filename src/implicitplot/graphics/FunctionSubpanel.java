@@ -16,7 +16,7 @@ import java.awt.event.MouseMotionListener;
 public class FunctionSubpanel extends JPanel {
 
 	ArrayList<Point> pointsList;
-	
+
 	public FunctionSubpanel() {
 		super();
 		pointsList = new ArrayList<Point>();

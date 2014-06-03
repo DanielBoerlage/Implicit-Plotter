@@ -28,7 +28,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
 
     public GraphPanel(Dimension d) {
         super();
-        this.pointSize = 4;
+        this.pointSize = 2;
         this.size = d;
         //pointsList = new ArrayList<Point>();
         this.addMouseMotionListener(this);
@@ -146,9 +146,9 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
         for(FunctionSubpanel sub : Client.equationPanel.functionList){
             for(int i = 0; i < sub.getPointsList().size(); i++){
                 g2d.fillOval(sub.getPointsList().get(i).getX() + (int)(this.getPreferredSize().width/2) - this.pointSize/2,
-                            sub.getPointsList().get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
-                            this.pointSize,
-                            this.pointSize);
+                             sub.getPointsList().get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
+                             this.pointSize,
+                             this.pointSize);
             }
         }
         
