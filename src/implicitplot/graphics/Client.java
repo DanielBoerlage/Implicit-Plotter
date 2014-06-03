@@ -18,7 +18,7 @@ public class Client{
     static MenuPanel menuPanel;
     static Dimension screenSize;
 
-    public static void runClient(){ //The client frame runs the frame that hosts the panels
+    public static void runClient() { //The client frame runs the frame that hosts the panels
         frame = new JFrame("Implicit Plotter");
         frameSetup();
         panelSetup();
@@ -26,7 +26,7 @@ public class Client{
         test(); // making a bunch of points to paint
     }
 
-    public static void frameSetup(){ //set up the frame
+    public static void frameSetup() { //set up the frame
         frame.setLayout(null); 
         frame.setVisible(true);
         ImageIcon icon = new ImageIcon("res/images/icon/icon.gif");
@@ -39,7 +39,7 @@ public class Client{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void panelSetup(){ //set up the various panels
+    public static void panelSetup() { //set up the various panels
         graphPanel = new GraphPanel(new Dimension(500,577));
         equationPanel = new EquationPanel(new Dimension(300,577));
         menuPanel = new MenuPanel(new Dimension(600,23));
@@ -49,19 +49,20 @@ public class Client{
         menuPanel.setBounds(0,0,600,23);
     } 
 
-    public static void addPanels(){ //add the panels to frame
+    public static void addPanels() { //add the panels to frame
         frame.add(equationPanel);
         frame.add(graphPanel);
         frame.add(menuPanel);
     }
 
-    public static void test(){
+    public static void test() {
 
         //Point p = new Point(0,0);
         //graphPanel.addPoint(p);
         FunctionSubpanel sub = new FunctionSubpanel();
         sub.test();
         equationPanel.addFunctionSubpanel(sub);
+
 
         /*
 

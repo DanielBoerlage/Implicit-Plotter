@@ -3,6 +3,7 @@
 // file LICENSE or http://www.gnu.org/licenses/gpl-3.0.html
 
 package implicitplot.graphics;
+
 import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.JFrame;
@@ -13,8 +14,9 @@ import java.awt.event.MouseMotionListener;
 /**
  * @author Philip Xu
  */
-public class GraphPanel extends JPanel implements MouseMotionListener{
-    //ArrayList<Point> pointsList;
+
+public class GraphPanel extends JPanel implements MouseMotionListener {
+    ArrayList<Point> pointsList;
     private Dimension size;
     private int pointSize;
     public int mouseX = 0;
@@ -24,7 +26,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     public double xZoom = 25;
     public double yZoom = 25;
 
-    public GraphPanel(Dimension d){
+    public GraphPanel(Dimension d) {
         super();
         this.pointSize = 4;
         this.size = d;
@@ -32,7 +34,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         this.addMouseMotionListener(this);
     }
 
-    public void setPointSize(int size){
+    public void setPointSize(int size) {
         this.pointSize = size;
     }
     
@@ -42,7 +44,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
     }
     */
 
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         
         graphBackgroundColorSetup(g2d);
@@ -52,7 +54,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         positionDisplaySetup(g2d);
     }
 
-    public void graphBorderSetup(Graphics2D g2d){
+    public void graphBorderSetup(Graphics2D g2d) {
         g2d.setStroke(new BasicStroke(4));
         g2d.setColor(new Color(0, 120, 10));
         g2d.drawRect(
@@ -63,7 +65,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
                     );
     }
     
-    public void graphSetup(Graphics2D g2d){//draws the x,y axis
+    public void graphSetup(Graphics2D g2d) {//draws the x,y axis
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                         RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.BLACK);
@@ -84,7 +86,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         
     }
 
-    public void graphDrawScale(Graphics2D g2d){
+    public void graphDrawScale(Graphics2D g2d) {
         for(int x = (int)(this.getPreferredSize().width/2);
             x <= (int)(this.getPreferredSize().width); 
             x += (int)(xScale * 25))
@@ -134,12 +136,12 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         }
     }
 
-    public void graphBackgroundColorSetup(Graphics2D g2d){//paints the background of a color.
+    public void graphBackgroundColorSetup(Graphics2D g2d) {//paints the background of a color.
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0,0,this.getPreferredSize().width,this.getPreferredSize().height);
     }
 
-    public void paintPoints(Graphics2D g2d){ // this paints the points
+    public void paintPoints(Graphics2D g2d) { // this paints the points
         g2d.setColor(Color.MAGENTA);
         for(FunctionSubpanel sub : Client.equationPanel.functionList){
             for(int i = 0; i < sub.getPointsList().size(); i++){
@@ -152,7 +154,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         
     }
 
-    public void positionDisplaySetup(Graphics2D g2d){//this set up the x and y position display
+    public void positionDisplaySetup(Graphics2D g2d) {//this set up the x and y position display
         g2d.setColor(Color.BLACK);
         String posiX = "X: " + mouseX;
         String posiY = "Y: " + mouseY;
@@ -163,18 +165,18 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         g2d.drawString(posiY,10,40);
     }
 
-    public void mouseMoved(MouseEvent e){ // this is called every tick the mouse is moved.
+    public void mouseMoved(MouseEvent e) { // this is called every tick the mouse is moved.
         mouseX = e.getPoint().x - (int)(this.getPreferredSize().width/2);
         mouseY = (e.getPoint().y - (int)(this.getPreferredSize().height/2)) * (-1);
         this.repaint();
         //System.out.println(mouseX + ", " + mouseY);
     }
 
-    public void mouseDragged(MouseEvent evt){
+    public void mouseDragged(MouseEvent evt) {
         //Useless
     }
 
-    public Dimension getPreferredSize(){
+    public Dimension getPreferredSize() {
         return this.size;
     }
 }

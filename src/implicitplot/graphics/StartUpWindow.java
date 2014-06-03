@@ -3,6 +3,7 @@
 // file LICENSE or http://www.gnu.org/licenses/gpl-3.0.html
 
 package implicitplot.graphics;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -27,7 +28,7 @@ public class StartUpWindow {
         buttonConfig();
 	}
 
-    public static void buttonConfig(){
+    public static void buttonConfig() {
         start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
@@ -39,7 +40,7 @@ public class StartUpWindow {
         });
     }
 
-    public static void componentsInit(){
+    public static void componentsInit() {
         //initializing the frame
         window = new JFrame("Hi");
         //Components
@@ -50,7 +51,7 @@ public class StartUpWindow {
         start = new JButton("Start");
     }
 
-    public static void frameSetup(){
+    public static void frameSetup() {
         Dimension screenSize = 
                     Toolkit.getDefaultToolkit().getScreenSize(); //rtn: dimension of client-side monitor
         window.setUndecorated(true);  
@@ -65,7 +66,7 @@ public class StartUpWindow {
         window.setIconImage(icon.getImage());
     }
 
-    public static void addComponents(){
+    public static void addComponents() {
         panel.add(title);
         panel.add(about);
         panel.add(start);
@@ -74,7 +75,7 @@ public class StartUpWindow {
         about.setForeground(new Color(255,215,0));
     }
 
-    public static void setComponentsPositions(){
+    public static void setComponentsPositions() {
         panel.setLayout(null);  //Freestyle layout
         Insets insets = panel.getInsets(); 
         Dimension titleSize = title.getPreferredSize();
@@ -84,9 +85,8 @@ public class StartUpWindow {
         start.setBounds(340,30,70,70);
     }
 
-    public static void runClient(){
+    public static void runClient() {
         Client.runClient();
     }
-
     
 }

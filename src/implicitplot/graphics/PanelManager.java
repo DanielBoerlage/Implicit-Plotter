@@ -7,7 +7,7 @@ package implicitplot.graphics;
 /**
  * @author Philip Xu
  */
-public class PanelManager{
+public class PanelManager {
 	public static int frameHeight;
     public static int frameWidth;
     
