@@ -23,19 +23,20 @@ public class Client{
         frameSetup();
         panelSetup();
         addPanels();
-        test(); // making a bunch of points to paint
+        //test(); // making a bunch of points to paint
     }
 
     public static void frameSetup() { //set up the frame
         frame.setLayout(null); 
         frame.setVisible(true);
+        frame.setResizable(false);
         ImageIcon icon = new ImageIcon("res/images/icon/icon.gif");
         frame.setIconImage(icon.getImage());
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setBounds( (int)(screenSize.getWidth()/2 - 409),
+        frame.setBounds( (int)(screenSize.getWidth()/2 - 400),
                         (int)(screenSize.getHeight()/2 - 350), 
-                         818, 
-                         640 );
+                         806, 
+                         628 );
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -96,4 +97,4 @@ public class Client{
         */
 
     }
-}
+} 

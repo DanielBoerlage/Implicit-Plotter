@@ -7,6 +7,7 @@ package implicitplot.graphics;
 import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 /**
  * @author Philip Xu
@@ -42,6 +43,13 @@ public class EquationPanel extends JPanel {
 							80,
 							40);
 		this.add(addEquation);
+		addEquation.addActionListener(new ActionListener() {
+ 
+            public void actionPerformed(ActionEvent e)
+            {
+                NewFunctionFrame addFunctionFrame = new NewFunctionFrame();
+            }
+        });      
 		System.out.println(this.getPreferredSize().width + "  " + this.getPreferredSize().height);
 	}
 
