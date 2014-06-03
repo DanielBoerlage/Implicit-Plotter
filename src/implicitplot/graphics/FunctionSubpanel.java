@@ -14,14 +14,25 @@ import java.awt.event.MouseMotionListener;
  */
 public class FunctionSubpanel extends JPanel{
 	
-	ArrayList<Point> pointsList;
+	private ArrayList<Point> pointsList;
+
 	public FunctionSubpanel(){
 		super();
 		pointsList = new ArrayList<Point>();
+		test();
 	}
 	
 	public void addPoint(Point point){//TO-DO: implement xScale and yScale
         this.pointsList.add(point);
+    }
+
+    public void test(){
+    	for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+            Point p = new Point(
+                                (int)(Math.toRadians((double)i) * 25),
+                                (int)(Math.sin(Math.toRadians((double)i))  * 50));
+            this.addPoint(p);
+        }
     }
 	
 	public ArrayList<Point> getPointsList(){

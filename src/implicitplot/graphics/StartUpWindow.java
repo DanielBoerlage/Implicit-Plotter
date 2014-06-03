@@ -85,7 +85,7 @@ public class StartUpWindow {
     }
 
     public static void runClient(){
-        Client client = new Client();
+        Client.runClient();
     }
 
     

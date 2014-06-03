@@ -14,13 +14,13 @@ import java.awt.event.MouseMotionListener;
  * @author Philip Xu
  */
 public class GraphPanel extends JPanel implements MouseMotionListener{
-    ArrayList<Point> pointsList;
+    //ArrayList<Point> pointsList;
     private Dimension size;
     private int pointSize;
     public int mouseX = 0;
     public int mouseY = 0;
-    public double xScale = 3.14 / 2;
-    public double yScale = 3.14 / 2;
+    public double xScale = Math.PI / 2;
+    public double yScale = Math.PI / 2;
     public double xZoom = 25;
     public double yZoom = 25;
 
@@ -28,7 +28,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         super();
         this.pointSize = 4;
         this.size = d;
-        pointsList = new ArrayList<Point>();
+        //pointsList = new ArrayList<Point>();
         this.addMouseMotionListener(this);
     }
 
@@ -36,10 +36,12 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
         this.pointSize = size;
     }
     
+    /*
     public void addPoint(Point point){//TO-DO: implement xScale and yScale
         this.pointsList.add(point);
     }
-    
+    */
+
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         
@@ -139,12 +141,15 @@ public class GraphPanel extends JPanel implements MouseMotionListener{
 
     public void paintPoints(Graphics2D g2d){ // this paints the points
         g2d.setColor(Color.MAGENTA);
-        for(int i = 0; i < pointsList.size(); i++){
-            g2d.fillOval(pointsList.get(i).getX() + (int)(this.getPreferredSize().width/2) - this.pointSize/2,
-                         pointsList.get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
-                         this.pointSize,
-                         this.pointSize);
+        for(FunctionSubpanel sub : Client.equationPanel.functionList){
+            for(int i = 0; i < sub.getPointsList().size(); i++){
+                g2d.fillOval(sub.getPointsList().get(i).getX() + (int)(this.getPreferredSize().width/2) - this.pointSize/2,
+                            sub.getPointsList().get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
+                            this.pointSize,
+                            this.pointSize);
+            }
         }
+        
     }
 
     public void positionDisplaySetup(Graphics2D g2d){//this set up the x and y position display

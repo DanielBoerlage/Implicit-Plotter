@@ -15,7 +15,7 @@ public class EquationPanel extends JPanel{
 	public int width, height, x, y;
 	private JButton addEquation;
 	private Dimension size;
-	ArrayList<FunctionSubpanel> functionList;
+	ArrayList<FunctionSubpanel> functionList ;
 
 	public EquationPanel(Dimension d){
 		super();
@@ -23,6 +23,10 @@ public class EquationPanel extends JPanel{
 		this.functionList = new ArrayList<FunctionSubpanel>();
 		guiSetup();
 		buttonSetup();
+	}
+
+	public ArrayList<FunctionSubpanel> getFunctionList(){
+		return this.functionList;
 	}
 
 	public void addFunctionSubpanel(FunctionSubpanel subpanel){
