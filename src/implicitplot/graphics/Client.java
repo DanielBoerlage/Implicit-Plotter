@@ -17,7 +17,7 @@ public class Client extends JFrame {
     MenuPanel menuPanel;
     Dimension screenSize;
 
-    public Client(){ //The client frame runs the frame that hosts the panels
+    public Client() { //The client frame runs the frame that hosts the panels
         super("Implicit Plotter");
         frameSetup();
         panelSetup();
@@ -25,7 +25,7 @@ public class Client extends JFrame {
         test(); // making a bunch of points to paint
     }
 
-    public void frameSetup(){ //set up the frame
+    public void frameSetup() { //set up the frame
         this.setLayout(null); 
         this.setVisible(true);
         ImageIcon icon = new ImageIcon("res/images/icon/icon.gif");
@@ -38,7 +38,7 @@ public class Client extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void panelSetup(){ //set up the various panels
+    public void panelSetup() { //set up the various panels
         graphPanel = new GraphPanel(new Dimension(500,577));
         equationPanel = new EquationPanel(new Dimension(300,577));
         menuPanel = new MenuPanel(new Dimension(600,23));
@@ -48,26 +48,26 @@ public class Client extends JFrame {
         menuPanel.setBounds(0,0,600,23);
     } 
 
-    public void addPanels(){ //add the panels to frame
+    public void addPanels() { //add the panels to frame
         this.add(equationPanel);
         this.add(graphPanel);
         this.add(menuPanel);
     }
 
-    public void test(){
+    public void test() {
 
         //Point p = new Point(0,0);
         //graphPanel.addPoint(p);
 
         
-        for(int i = 0; i <= 360; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+        for(int i = 0; i <= 360; i += 1) {//parametric : x = cos(theta) * r, y = sin(theta) * r
             Point p = new Point(
                                 (int)(Math.cos(Math.toRadians((double)i)) * 50),
                                 (int)(Math.sin(Math.toRadians((double)i)) * 50));
             graphPanel.addPoint(p);
         }
 
-        for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+        for(int i = -1000; i <= 1000; i += 1) {//parametric : x = cos(theta) * r, y = sin(theta) * r
             Point p = new Point(
                                 (int)(Math.toRadians((double)i) * 25),
                                 (int)(Math.sin(Math.toRadians((double)i))  * 50));

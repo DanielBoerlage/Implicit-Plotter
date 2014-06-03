@@ -3,6 +3,7 @@
 // file LICENSE or http://www.gnu.org/licenses/gpl-3.0.html
 
 package implicitplot.graphics;
+
 import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
@@ -10,14 +11,14 @@ import javax.swing.*;
 /**
  * @author Philip Xu
  */
-public class EquationPanel extends JPanel{
+public class EquationPanel extends JPanel {
 	
 	public int width, height, x, y;
 	private JButton addEquation;
 	private Dimension size;
 	ArrayList<FunctionSubpanel> functionList;
 
-	public EquationPanel(Dimension d){
+	public EquationPanel(Dimension d) {
 		super();
 		this.size = d;
 		this.functionList = new ArrayList<FunctionSubpanel>();
@@ -25,12 +26,12 @@ public class EquationPanel extends JPanel{
 		buttonSetup();
 	}
 
-	public void addFunctionSubpanel(FunctionSubpanel subpanel){
+	public void addFunctionSubpanel(FunctionSubpanel subpanel) {
 		this.functionList.add(subpanel);
 		this.repaint();
 	}
 
-	public void buttonSetup(){
+	public void buttonSetup() {
 		addEquation = new JButton("Add");
 		addEquation.setBounds((int)(this.getPreferredSize().width - 100),
 							(int)(this.getPreferredSize().height - 60),
@@ -40,12 +41,12 @@ public class EquationPanel extends JPanel{
 		System.out.println(this.getPreferredSize().width + "  " + this.getPreferredSize().height);
 	}
 
-	public void guiSetup(){
+	public void guiSetup() {
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
 	}
 
-	public Dimension getPreferredSize(){
+	public Dimension getPreferredSize() {
 		return this.size;
 	}
 }

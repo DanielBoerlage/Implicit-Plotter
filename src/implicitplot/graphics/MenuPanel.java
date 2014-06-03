@@ -10,30 +10,30 @@ import javax.swing.*;
 /**
  * @author Philip Xu
  */
-public class MenuPanel extends JPanel{
+public class MenuPanel extends JPanel {
 	private Dimension size;
 	JMenuBar menuBar;
 	JMenu file, preferences;
 	JMenuItem file_open,file_save,file_add,file_etc;
 	JMenuItem preferences_options, preferences_colors;
 
-	public MenuPanel(Dimension d){
+	public MenuPanel(Dimension d) {
 		super();
 		this.size = d;
 		menuBarSetup();
 		panelSetup();
 	}
 
-	public Dimension getPreferredSize(){
+	public Dimension getPreferredSize() {
         return this.size;
     }
 
-	public void panelSetup(){
+	public void panelSetup() {
 		this.setLayout(null);
 		this.add(menuBar);
 	}
 
-	public void menuBarSetup(){
+	public void menuBarSetup() {
 		menuBar = new JMenuBar();
 		fileMenuSetup();
 		preferencesMenuSetup();
@@ -42,7 +42,7 @@ public class MenuPanel extends JPanel{
 		menuBar.setBounds(0,0,menuBar.getPreferredSize().width,menuBar.getPreferredSize().height);
 	}
 
-	public void fileMenuSetup(){
+	public void fileMenuSetup() {
 		file = new JMenu("Files");
 		file_open = new JMenuItem("Open");
 		file_save = new JMenuItem("Save");
@@ -57,7 +57,7 @@ public class MenuPanel extends JPanel{
 		file.add(file_etc);
 	}
 
-	public void preferencesMenuSetup(){
+	public void preferencesMenuSetup() {
 		preferences = new JMenu("Preferences");
 		preferences_options = new JMenuItem("Options");
 		preferences_colors = new JMenuItem("Colors");

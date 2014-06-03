@@ -12,19 +12,19 @@ import java.awt.event.MouseMotionListener;
 /**
  * @author Philip Xu
  */
-public class FunctionSubpanel extends JPanel{
+public class FunctionSubpanel extends JPanel {
 	
 	ArrayList<Point> pointsList;
-	public FunctionSubpanel(){
+	public FunctionSubpanel() {
 		super();
 		pointsList = new ArrayList<Point>();
 	}
 	
-	public void addPoint(Point point){//TO-DO: implement xScale and yScale
+	public void addPoint(Point point) {//TO-DO: implement xScale and yScale
         this.pointsList.add(point);
     }
 	
-	public ArrayList<Point> getPointsList(){
+	public ArrayList<Point> getPointsList() {
 		return this.pointsList;
 	}
 }
