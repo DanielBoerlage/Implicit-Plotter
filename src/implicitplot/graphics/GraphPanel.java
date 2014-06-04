@@ -89,6 +89,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
         
     }
 
+    //draws the ticks on x and y axis, uses xScale and yScale
     public void graphDrawScale(Graphics2D g2d) {
         for(int x = (int)(this.getPreferredSize().width/2);
             x <= (int)(this.getPreferredSize().width); 
@@ -156,7 +157,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
         }
     }
 
-    public void paintCurve(Graphics2D g2d) { // this paints the points
+    public void paintCurve(Graphics2D g2d) { // this paints a line between consecutive points
         for(FunctionSubpanel sub : Client.equationPanel.functionList){
             g2d.setColor(sub.graphColor);
             g2d.setStroke(new BasicStroke(1));

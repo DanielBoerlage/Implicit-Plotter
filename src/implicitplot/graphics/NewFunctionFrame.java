@@ -14,6 +14,7 @@ public class NewFunctionFrame extends JFrame{
 	JLabel label;
 	Font font1 = new Font("SansSerif", Font.BOLD, 18);
 
+    //constructor
 	public NewFunctionFrame(){
 		super("Add Function");
 		frameSetup();
@@ -23,8 +24,9 @@ public class NewFunctionFrame extends JFrame{
 		labelSetup();
 	}
 
+    //sets up the frame
 	public void frameSetup() { //set up the frame
-        this.setLayout(null); 
+        this.setLayout(null);  //frees up the layout
         this.setVisible(true);
         this.setResizable(false);
         ImageIcon icon = new ImageIcon("res/images/icon/icon.gif");
@@ -44,6 +46,7 @@ public class NewFunctionFrame extends JFrame{
     	this.add(panel);
     } 
 
+    //sets up the textfield where function is inputted. 
     public void newFunctionFieldSetup(){
     	newFunctionField = new JTextField();
 
@@ -58,6 +61,7 @@ public class NewFunctionFrame extends JFrame{
     	panel.add(newFunctionField);
     }
 
+    //sets up the "Y = " label
     public void labelSetup(){
     	label = new JLabel("Y = ");
     	label.setFont(font1);
@@ -65,6 +69,7 @@ public class NewFunctionFrame extends JFrame{
     	panel.add(label);
     }
 
+    //sets up the buttons
     public void buttonSetup(){
     	cancel = new JButton("Cancel");
     	done = new JButton("Done");
@@ -93,11 +98,13 @@ public class NewFunctionFrame extends JFrame{
         });
     }
 
+    //called to create a newFunctionSubpanel
     public void newFunctionSubpanel(){
         FunctionSubpanel sp1 = new FunctionSubpanel(newFunctionField.getText());
         Client.equationPanel.addFunctionSubpanel(sp1);
     }
 
+    //shuts off this window.
     public void closeWindow(){
     	this.dispose();
     }
