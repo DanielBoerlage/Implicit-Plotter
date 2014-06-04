@@ -9,6 +9,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import implicitplot.equations.ExplicitFunction;
 
 /**
  * @author Philip Xu
@@ -18,29 +19,42 @@ public class FunctionSubpanel extends JPanel {
 	ArrayList<Point> pointsList;
 	Color graphColor;
 	String function;
+	ExplicitFunction func;
 	private Dimension size;
 
 
 	public FunctionSubpanel(String msg) {
 		super();
+		func = new ExplicitFunction(msg);
 		this.function = " Y =  " + msg;
 		this.size = new Dimension(280, 60);
 		this.graphColor = Color.BLACK;
 		pointsList = new ArrayList<Point>();
+		evaluateAndGenerate();
 	}
 
 	public FunctionSubpanel(Color color,String msg) {
 		super();
+		func = new ExplicitFunction(msg);
 		this.function = " Y =  " + msg;
 		this.size = new Dimension(280, 60);
 		this.graphColor = color;
 		pointsList = new ArrayList<Point>();
+		evaluateAndGenerate();
+	}
+
+	public void evaluateAndGenerate(){
+		for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+            Point p = new Point((int)(Math.toRadians((double)i) * 25),
+                                (int)(func.evaluate(i)* 25));
+            this.addPoint(p);
+        }
 	}
 
 	public void setDimension(Dimension d){
 		this.size = d;
 	}
-	
+	 
 	public void addPoint(Point point) {//TO-DO: implement xScale and yScale
         this.pointsList.add(point);
     }
