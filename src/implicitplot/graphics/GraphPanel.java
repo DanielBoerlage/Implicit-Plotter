@@ -28,7 +28,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
 
     public GraphPanel(Dimension d) {
         super();
-        this.pointSize = 2;
+        this.pointSize = 4;
         this.size = d;
         //pointsList = new ArrayList<Point>();
         this.addMouseMotionListener(this);
