@@ -19,10 +19,10 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
     ArrayList<Point> pointsList;
     private Dimension size;
     private int pointSize;
-    public int mouseX = 0;
-    public int mouseY = 0;
+    public double mouseX = 0;
+    public double mouseY = 0;
     public double xScale = Math.PI / 2;
-    public double yScale = Math.PI / 2;
+    public double yScale = 1;
     public double xZoom = 25;
     public double yZoom = 25;
 
@@ -89,7 +89,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
     public void graphDrawScale(Graphics2D g2d) {
         for(int x = (int)(this.getPreferredSize().width/2);
             x <= (int)(this.getPreferredSize().width); 
-            x += (int)(xScale * 25))
+            x += (int)(xScale * xZoom))
         {
             g2d.drawLine(
                      x,
@@ -101,7 +101,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
 
         for(int x = (int)(this.getPreferredSize().width/2);
             x >= -(int)(this.getPreferredSize().width); 
-            x -= (int)(xScale * 25))
+            x -= (int)(xScale * xZoom))
         {
             g2d.drawLine(
                      x,
@@ -113,7 +113,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
 
         for(int y = (int)(this.getPreferredSize().height/2);
             y >= -(int)(this.getPreferredSize().height); 
-            y -= (int)(yScale * 25))
+            y -= (int)(yScale * yZoom))
         {
             g2d.drawLine(
                      (int)(this.getPreferredSize().width/2) - 2,
@@ -125,7 +125,7 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
 
         for(int y = (int)(this.getPreferredSize().height/2);
             y <= (int)(this.getPreferredSize().height); 
-            y += (int)(yScale * 25))
+            y += (int)(yScale * yZoom))
         {
             g2d.drawLine(
                      (int)(this.getPreferredSize().width/2) - 2,
@@ -142,8 +142,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
     }
 
     public void paintPoints(Graphics2D g2d) { // this paints the points
-        g2d.setColor(Color.MAGENTA);
         for(FunctionSubpanel sub : Client.equationPanel.functionList){
+            g2d.setColor(sub.graphColor);
             for(int i = 0; i < sub.getPointsList().size(); i++){
                 g2d.fillOval(sub.getPointsList().get(i).getX() + (int)(this.getPreferredSize().width/2) - this.pointSize/2,
                              -sub.getPointsList().get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
@@ -165,8 +165,8 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
     }
 
     public void mouseMoved(MouseEvent e) { // this is called every tick the mouse is moved.
-        mouseX = e.getPoint().x - (int)(this.getPreferredSize().width/2);
-        mouseY = (e.getPoint().y - (int)(this.getPreferredSize().height/2)) * (-1);
+        mouseX = (e.getPoint().x - this.getPreferredSize().width/2) / xZoom ;
+        mouseY = ((e.getPoint().y - this.getPreferredSize().height/2) / yZoom) * -1;
         this.repaint();
         //System.out.println(mouseX + ", " + mouseY);
     }

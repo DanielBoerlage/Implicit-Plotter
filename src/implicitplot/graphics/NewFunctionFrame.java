@@ -87,10 +87,20 @@ public class NewFunctionFrame extends JFrame{
  
             public void actionPerformed(ActionEvent e)
             {
-            	Client.equationPanel.addFunctionSubpanel(new FunctionSubpanel());
+                newFunctionSubpanel();
                 closeWindow();
             }
         });
+    }
+
+    public void newFunctionSubpanel(){
+        FunctionSubpanel sp1 = new FunctionSubpanel();
+        for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
+            Point p = new Point((int)(Math.toRadians((double)i) * 25),
+                                (int)(Math.sin(Math.toRadians((double)i))  * 25));
+            sp1.addPoint(p);
+        }
+        Client.equationPanel.addFunctionSubpanel(sp1);
     }
 
     public void closeWindow(){

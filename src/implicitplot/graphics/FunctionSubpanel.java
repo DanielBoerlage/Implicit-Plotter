@@ -16,27 +16,40 @@ import java.awt.event.MouseMotionListener;
 public class FunctionSubpanel extends JPanel {
 
 	ArrayList<Point> pointsList;
+	Color graphColor;
+	private Dimension size;
 
 	public FunctionSubpanel() {
 		super();
+		this.graphColor = Color.BLACK;
 		pointsList = new ArrayList<Point>();
-		test();
+	}
+
+	public FunctionSubpanel(Color color) {
+		super();
+		this.graphColor = color;
+		pointsList = new ArrayList<Point>();
+	}
+
+	public void setDimension(Dimension d){
+		this.size = d;
 	}
 	
 	public void addPoint(Point point) {//TO-DO: implement xScale and yScale
         this.pointsList.add(point);
     }
-
-    public void test(){
-    	for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
-            Point p = new Point(
-                                (int)(Math.toRadians((double)i) * 25),
-                                (int)(Math.sin(Math.toRadians((double)i))  * 50));
-            this.addPoint(p);
-        }
-    }
 	
 	public ArrayList<Point> getPointsList() {
 		return this.pointsList;
+	}
+
+	public Dimension getPreferredSize() {
+		return this.size;
+	}
+
+	public void paint(Graphics g){
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.setColor(Color.RED);
+		g2d.fillRect(0,0,this.getPreferredSize().width,this.getPreferredSize().width);
 	}
 }

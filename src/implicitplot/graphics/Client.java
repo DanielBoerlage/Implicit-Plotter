@@ -60,9 +60,9 @@ public class Client{
 
         //Point p = new Point(0,0);
         //graphPanel.addPoint(p);
-        FunctionSubpanel sub = new FunctionSubpanel();
-        sub.test();
-        equationPanel.addFunctionSubpanel(sub);
+        //FunctionSubpanel sub = new FunctionSubpanel();
+        //sub.test();
+        //equationPanel.addFunctionSubpanel(sub);
 
 
         /*
