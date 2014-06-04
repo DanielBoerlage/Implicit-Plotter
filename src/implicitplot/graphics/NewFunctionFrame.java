@@ -94,7 +94,7 @@ public class NewFunctionFrame extends JFrame{
     }
 
     public void newFunctionSubpanel(){
-        FunctionSubpanel sp1 = new FunctionSubpanel();
+        FunctionSubpanel sp1 = new FunctionSubpanel(newFunctionField.getText());
         for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
             Point p = new Point((int)(Math.toRadians((double)i) * 25),
                                 (int)(Math.sin(Math.toRadians((double)i))  * 25));

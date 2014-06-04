@@ -15,6 +15,7 @@ import java.awt.event.*;
 public class EquationPanel extends JPanel {
 	
 	public int width, height, x, y;
+	private int numOfFunctionSubpanels;
 	private JButton addEquation;
 	private Dimension size;
 	ArrayList<FunctionSubpanel> functionList ;
@@ -22,6 +23,7 @@ public class EquationPanel extends JPanel {
 	public EquationPanel(Dimension d) {
 		super();
 		this.size = d;
+		numOfFunctionSubpanels = 0;
 		this.functionList = new ArrayList<FunctionSubpanel>();
 		guiSetup();
 		buttonSetup();
@@ -33,6 +35,13 @@ public class EquationPanel extends JPanel {
 
 	public void addFunctionSubpanel(FunctionSubpanel subpanel) {
 		this.functionList.add(subpanel);
+		subpanel.setBounds(10, 
+						   10 + ((subpanel.getPreferredSize().height+10) * numOfFunctionSubpanels),
+						   subpanel.getPreferredSize().width,
+						   subpanel.getPreferredSize().height
+						   );
+		this.add(subpanel);
+		numOfFunctionSubpanels ++;
 		this.repaint();
 	}
 

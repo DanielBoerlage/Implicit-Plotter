@@ -17,16 +17,22 @@ public class FunctionSubpanel extends JPanel {
 
 	ArrayList<Point> pointsList;
 	Color graphColor;
+	String function;
 	private Dimension size;
 
-	public FunctionSubpanel() {
+
+	public FunctionSubpanel(String msg) {
 		super();
+		this.function = " Y =  " + msg;
+		this.size = new Dimension(280, 60);
 		this.graphColor = Color.BLACK;
 		pointsList = new ArrayList<Point>();
 	}
 
-	public FunctionSubpanel(Color color) {
+	public FunctionSubpanel(Color color,String msg) {
 		super();
+		this.function = " Y =  " + msg;
+		this.size = new Dimension(280, 60);
 		this.graphColor = color;
 		pointsList = new ArrayList<Point>();
 	}
@@ -49,7 +55,10 @@ public class FunctionSubpanel extends JPanel {
 
 	public void paint(Graphics g){
 		Graphics2D g2d = (Graphics2D)g;
-		g2d.setColor(Color.RED);
-		g2d.fillRect(0,0,this.getPreferredSize().width,this.getPreferredSize().width);
+		g2d.setColor(Color.WHITE);
+		g2d.fillRect(0,0,this.getPreferredSize().width,this.getPreferredSize().height);
+		g2d.setColor(Color.BLACK);
+		g2d.setFont(new Font("SansSerif", Font.BOLD, 24));
+		g2d.drawString(function,10,this.size.height/2 + 10);
 	}
 }
