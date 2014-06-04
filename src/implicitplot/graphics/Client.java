@@ -56,46 +56,4 @@ public class Client{
         frame.add(graphPanel);
         frame.add(menuPanel);
     }
-
-    public static void test() {
-
-        //Point p = new Point(0,0);
-        //graphPanel.addPoint(p);
-        //FunctionSubpanel sub = new FunctionSubpanel();
-        //sub.test();
-        //equationPanel.addFunctionSubpanel(sub);
-
-
-        /*
-
-        for(int i = -400; i <= 400; i += 1){//y = sin(x)
-            Point p = new Point(
-                                i,
-                                (int)(Math.tan(Math.toRadians((double)i)) * 50));
-            graphPanel.addPoint(p);
-        }
-
-        for(int i = -400; i <= 400; i += 1){//y = sin(x)
-            Point p = new Point(
-                                (int)(Math.tan(Math.toRadians((double)i)) * 50),
-                                i);
-            graphPanel.addPoint(p);
-        }
-
-        for(int i = -400; i <= 400; i += 1){//y = sin(x)
-            Point p = new Point(
-                                -(int)(Math.tan(Math.toRadians((double)i)) * 50),
-                                i);
-            graphPanel.addPoint(p);
-        }
-
-        for(int i = -400; i <= 400; i += 1){//y = sin(x)
-            Point p = new Point(
-                                i,
-                                -(int)(Math.tan(Math.toRadians((double)i)) * 50));
-            graphPanel.addPoint(p);
-        }
-        */
-
-    }
 } 
