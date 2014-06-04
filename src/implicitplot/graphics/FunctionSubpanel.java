@@ -7,9 +7,9 @@ package implicitplot.graphics;
 import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import implicitplot.equations.ExplicitFunction;
+import javax.swing.border.Border;
 
 /**
  * @author Philip Xu
@@ -21,24 +21,41 @@ public class FunctionSubpanel extends JPanel {
 	String function;
 	ExplicitFunction func;
 	private Dimension size;
+	JLabel functionLabel, yEqualsLabel;
+	JTextField functionTextField;
 
 
 	public FunctionSubpanel(String msg) {
 		super();
-		func = new ExplicitFunction(msg);
-		this.function = " Y =  " + msg;
-		this.size = new Dimension(280, 60);
-		this.graphColor = Color.BLACK;
-		pointsList = new ArrayList<Point>();
-		evaluateAndGenerate();
+		functionSetup(msg);
+		createAndShowGUI(msg);
 	}
 
 	public FunctionSubpanel(Color color,String msg) {
 		super();
-		func = new ExplicitFunction(msg);
-		this.function = " Y =  " + msg;
-		this.size = new Dimension(280, 60);
+		functionSetup(msg);
+		createAndShowGUI(color,msg);
+	}
+
+	public void createAndShowGUI(String msg){
+		this.setBackground(Color.WHITE);
+		this.graphColor = Color.BLACK;
+		this.size = new Dimension(280, 80);
+		this.setLayout(null);
+		labelSetup();
+	}
+	
+	public void createAndShowGUI(Color color,String msg){
+		this.setBackground(Color.WHITE);
 		this.graphColor = color;
+		this.size = new Dimension(280, 80);
+		this.setLayout(null);
+		labelSetup();
+	}
+
+	public void functionSetup(String msg){
+		func = new ExplicitFunction(msg);
+		this.function = msg;
 		pointsList = new ArrayList<Point>();
 		evaluateAndGenerate();
 	}
@@ -52,7 +69,81 @@ public class FunctionSubpanel extends JPanel {
         }
 	}
 
-	//(int)(Math.toRadians((double)i) * 25),
+	public void labelSetup(){
+		yEqualsLabel = new JLabel(" y =  ");
+		yEqualsLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
+		yEqualsLabel.setBounds(5,
+								this.size.height/2 - yEqualsLabel.getPreferredSize().height - 5,
+								yEqualsLabel.getPreferredSize().width,
+								yEqualsLabel.getPreferredSize().height);
+
+
+
+
+		functionLabel = new JLabel(function);
+		functionLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
+		functionLabel.setBounds(5 + yEqualsLabel.getPreferredSize().width,
+								this.size.height/2 - functionLabel.getPreferredSize().height - 30,
+								this.getPreferredSize().width - yEqualsLabel.getPreferredSize().width - 5,
+								this.getPreferredSize().height);
+
+
+
+		functionLabel.addMouseListener(new MouseListener(){
+			public void mouseClicked(MouseEvent arg0) {
+				functionTextField = new JTextField(function);
+				functionTextField.setFont(new Font("SansSerif", Font.BOLD, 24));
+				functionTextField.setBounds(59,
+											size.height/2 - functionTextField.getPreferredSize().height - 3,
+											216,
+											functionTextField.getPreferredSize().height);
+				Border border = BorderFactory.createLineBorder(Color.RED, 1);
+    			functionTextField.setBorder(border);
+    			functionTextField.setEditable(true);
+    			functionTextField.addFocusListener(new FocusListener(){
+    				public void focusGained(FocusEvent e) {}
+            		public void focusLost(FocusEvent e)
+           			{
+           				functionSetup(functionTextField.getText());
+           				Client.graphPanel.repaint();
+           				functionTextField.setVisible(false);
+           				functionLabel.setText(function);
+           				functionLabel.setVisible(true);
+           			}
+    			});
+
+
+    			functionTextField.addActionListener(new ActionListener() {
+    				public void actionPerformed(ActionEvent e) {
+        				functionSetup(functionTextField.getText());
+           				Client.graphPanel.repaint();
+           				functionTextField.setVisible(false);
+           				functionLabel.setText(function);
+           				functionLabel.setVisible(true);
+    				}
+				});
+
+
+				functionLabel.setVisible(false);
+				add(functionTextField);
+			}
+			public void mouseEntered(MouseEvent arg0) {
+			}
+			public void mouseExited(MouseEvent arg0) {
+			}
+			public void mousePressed(MouseEvent arg0) {
+			}
+			public void mouseReleased(MouseEvent arg0) {
+			}
+			});
+
+
+
+
+		this.add(functionLabel);
+		this.add(yEqualsLabel);
+	}
+
 
 	public void setDimension(Dimension d){
 		this.size = d;
@@ -68,14 +159,5 @@ public class FunctionSubpanel extends JPanel {
 
 	public Dimension getPreferredSize() {
 		return this.size;
-	}
-
-	public void paint(Graphics g){
-		Graphics2D g2d = (Graphics2D)g;
-		g2d.setColor(Color.WHITE);
-		g2d.fillRect(0,0,this.getPreferredSize().width,this.getPreferredSize().height);
-		g2d.setColor(Color.BLACK);
-		g2d.setFont(new Font("SansSerif", Font.BOLD, 24));
-		g2d.drawString(function,10,this.size.height/2 + 10);
 	}
 }
