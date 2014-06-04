@@ -17,6 +17,7 @@ public class Client{
     static EquationPanel equationPanel;
     static MenuPanel menuPanel;
     static Dimension screenSize;
+    static boolean lineModeOn = true;
 
     public static void runClient() { //The client frame runs the frame that hosts the panels
         frame = new JFrame("Implicit Plotter");

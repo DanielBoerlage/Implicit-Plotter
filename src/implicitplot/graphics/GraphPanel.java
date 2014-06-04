@@ -49,7 +49,10 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
         
         graphBackgroundColorSetup(g2d);
         graphSetup(g2d);
-        paintPoints(g2d);
+        if(Client.lineModeOn)
+            paintCurve(g2d);
+        else
+            paintPoints(g2d);
         graphBorderSetup(g2d);
         positionDisplaySetup(g2d);
     }
@@ -149,6 +152,20 @@ public class GraphPanel extends JPanel implements MouseMotionListener {
                              -sub.getPointsList().get(i).getY() + (int)(this.getPreferredSize().height/2) - this.pointSize/2,
                              this.pointSize,
                              this.pointSize);
+            }
+        }
+    }
+
+    public void paintCurve(Graphics2D g2d) { // this paints the points
+        for(FunctionSubpanel sub : Client.equationPanel.functionList){
+            g2d.setColor(sub.graphColor);
+            g2d.setStroke(new BasicStroke(1));
+            for(int i = 0; i < sub.getPointsList().size() - 1; i++){
+                if(Math.abs(-sub.getPointsList().get(i + 1).getY() - (-sub.getPointsList().get(i).getY())) < 500)
+                    g2d.drawLine(sub.getPointsList().get(i).getX() + (int)(this.getPreferredSize().width/2),
+                             -sub.getPointsList().get(i).getY() + (int)(this.getPreferredSize().height/2),
+                             sub.getPointsList().get(i + 1).getX() + (int)(this.getPreferredSize().width/2),
+                             -sub.getPointsList().get(i + 1).getY() + (int)(this.getPreferredSize().height/2));
             }
         }
     }

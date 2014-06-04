@@ -46,8 +46,8 @@ public class FunctionSubpanel extends JPanel {
 	public void evaluateAndGenerate(){
 
 		for(int i = -1000; i <= 1000; i += 1){//parametric : x = cos(theta) * r, y = sin(theta) * r
-            Point p = new Point((int)(((double)i / 100) * 25),
-                                (int)(func.evaluate((double)i / 100)* 25));
+            Point p = new Point((int)(((double)i / 25) * 25),
+                                (int)(func.evaluate((double)i / 25)* 25));
             this.addPoint(p);
         }
 	}
