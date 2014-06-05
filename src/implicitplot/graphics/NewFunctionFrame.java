@@ -9,9 +9,11 @@ import java.awt.event.*;
 public class NewFunctionFrame extends JFrame{
 
 	JPanel panel;
-	JTextField newFunctionField;
+	JTextField newFunctionField, newParametricXField, newParametricYField, newPolarField;
 	JButton cancel, done;
-	JLabel label;
+	JLabel label, label2;
+    String[] modes = { "Function", "Parametric", "Polar"};
+    JComboBox modesList;
 	Font font1 = new Font("SansSerif", Font.BOLD, 18);
     int functionMode = 1; // 1 -- y = f(x)
                           // 2 -- x = f(t)
@@ -24,7 +26,9 @@ public class NewFunctionFrame extends JFrame{
 		frameSetup();
 		panelSetup();
 		buttonSetup();
-		newFunctionFieldSetup();
+        newParametricFieldSetup();
+
+		//newFunctionFieldSetup();
 	}
 
     //sets up the frame
@@ -60,12 +64,41 @@ public class NewFunctionFrame extends JFrame{
         labelSetup();
     }
 
+    public void newParametricFieldSetup(){
+        newParametricXField = new JTextField();
+        newParametricXField.setFont(font1);
+        newParametricXField.setBounds(75, 10, 300, 25);
+        Border border = BorderFactory.createLineBorder(Color.GREEN, 2);
+        newParametricXField.setBorder(border);
+        panel.add(newParametricXField);
+
+        newParametricYField = new JTextField();
+        newParametricYField.setFont(font1);
+        newParametricYField.setBounds(75, 40, 300, 25);
+        newParametricYField.setBorder(border);
+        panel.add(newParametricYField);
+        parametricLabelSetup();
+    }
+
     //sets up the "Y = " label
     public void labelSetup(){
-    	label = new JLabel("Y = ");
+    	label = new JLabel("Y  =");
     	label.setFont(font1);
     	label.setBounds(25,22,label.getPreferredSize().width,label.getPreferredSize().height);
     	panel.add(label);  
+    }
+
+    public void parametricLabelSetup(){
+        label = new JLabel("X  =");
+        label.setFont(new Font("SansSerif", Font.BOLD, 16));
+        label.setBounds(25,12,label.getPreferredSize().width,label.getPreferredSize().height);
+
+        label2 = new JLabel("Y  =");
+        label2.setFont(new Font("SansSerif", Font.BOLD, 16));
+        label2.setBounds(25,42,label.getPreferredSize().width,label.getPreferredSize().height);
+
+        panel.add(label); 
+        panel.add(label2);
     }
 
     //sets up the buttons

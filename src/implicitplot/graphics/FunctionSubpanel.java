@@ -39,7 +39,7 @@ public class FunctionSubpanel extends JPanel {
 
 	public void createAndShowGUI(String msg){
 		this.setBackground(Color.WHITE);
-		this.graphColor = Color.BLACK;
+		this.graphColor = Color.RED;
 		this.size = new Dimension(280, 80); //sets the size
 		this.setLayout(null); // frees up the layout
 		labelSetup(); //
@@ -62,7 +62,7 @@ public class FunctionSubpanel extends JPanel {
 
 	public void evaluateAndGenerate(){ //evaluate a normal y = f(x) function, fills up a arraylist of points
 		for(int i = -1000; i <= 1000; i += 1){
-            Point p = new Point((int)(((double)i / Client.graphPanel.yZoom) * Client.graphPanel.xZoom), 
+            Point p = new Point((int)(((double)i / Client.graphPanel.xZoom) * Client.graphPanel.xZoom), 
                                 (int)(func.evaluate((double)i / Client.graphPanel.yZoom)* Client.graphPanel.xZoom));
             this.addPoint(p);
         }
