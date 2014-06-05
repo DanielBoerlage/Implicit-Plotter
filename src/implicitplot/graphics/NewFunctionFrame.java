@@ -13,6 +13,10 @@ public class NewFunctionFrame extends JFrame{
 	JButton cancel, done;
 	JLabel label;
 	Font font1 = new Font("SansSerif", Font.BOLD, 18);
+    int functionMode = 1; // 1 -- y = f(x)
+                          // 2 -- x = f(t)
+                          //      y = g(t)
+                          // 3 -- r = f(theta)       
 
     //constructor
 	public NewFunctionFrame(){
@@ -21,7 +25,6 @@ public class NewFunctionFrame extends JFrame{
 		panelSetup();
 		buttonSetup();
 		newFunctionFieldSetup();
-		labelSetup();
 	}
 
     //sets up the frame
@@ -49,16 +52,12 @@ public class NewFunctionFrame extends JFrame{
     //sets up the textfield where function is inputted. 
     public void newFunctionFieldSetup(){
     	newFunctionField = new JTextField();
-
     	newFunctionField.setFont(font1);
-
     	newFunctionField.setBounds(75, 20, 300, 30);
-
     	Border border = BorderFactory.createLineBorder(Color.RED, 2);
-
     	newFunctionField.setBorder(border);
-
     	panel.add(newFunctionField);
+        labelSetup();
     }
 
     //sets up the "Y = " label
@@ -66,7 +65,7 @@ public class NewFunctionFrame extends JFrame{
     	label = new JLabel("Y = ");
     	label.setFont(font1);
     	label.setBounds(25,22,label.getPreferredSize().width,label.getPreferredSize().height);
-    	panel.add(label);
+    	panel.add(label);  
     }
 
     //sets up the buttons

@@ -24,7 +24,6 @@ public class Client{
         frameSetup();
         panelSetup();
         addPanels();
-        //test(); // making a bunch of points to paint
     }
 
     public static void frameSetup() { //set up the frame
