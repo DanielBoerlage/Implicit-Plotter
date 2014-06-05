@@ -2,6 +2,7 @@ Implicit Plotter
 ==
 
 Implicit/General Equation Plotter by Daniel Boerlage and Philip Xu  2014
+![alt tag](https://raw.github.com/DanielBoerlage/Implicit-Plotter/blob/master/display.png)
 
 License
 ==
