@@ -26,9 +26,9 @@ public class NewFunctionFrame extends JFrame{
 		frameSetup();
 		panelSetup();
 		buttonSetup();
-        newParametricFieldSetup();
+        //newParametricFieldSetup();
 
-		//newFunctionFieldSetup();
+		newFunctionFieldSetup();
 	}
 
     //sets up the frame
