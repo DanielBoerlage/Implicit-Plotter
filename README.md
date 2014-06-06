@@ -1,12 +1,14 @@
 #Implicit Plotter
 Implicit/General Equation Plotter by Daniel Boerlage and Philip Xu  2014
 
-Supports:
-- [x]	Explicit function
-- [ ]	General equation
-- [ ]	Parametric functions
-- [ ]	Polar functions/equations
-- [ ]	General transformations
+Support for:
+*	Explicit function
+
+Future supported types:
+*	General equation
+*	Parametric functions
+*	Polar functions/equations
+*	General transformations
 
 *In hard development; no official binaries released yet*
 
