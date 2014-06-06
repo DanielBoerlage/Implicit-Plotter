@@ -45,6 +45,9 @@ public class Equation {
                     if(parseChar == ')' || parseChar == '$')
                         return; // todo: $ truly aborts recursive root
                     break;
+                case ' ':
+                    parseIndex++;
+                    break;
                 default:
                     parseBuffer = parseBuffer + parseChar;
                     parseIndex++;
