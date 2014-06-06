@@ -1,12 +1,27 @@
-Implicit Plotter
-==
-
+#Implicit Plotter
 Implicit/General Equation Plotter by Daniel Boerlage and Philip Xu  2014
+
+Supported Types:
+	* Explicit function
+
+Future supported types:
+	* General equation
+	* Parametric functions
+	* Polar functions/equations
+
+**In hard development; no official binaries released yet**
+
+###Screenshots
 ![alt tag](https://raw.github.com/DanielBoerlage/Implicit-Plotter/master/display.png)
 
-License
+###Donations
 ==
+Please help support the project by donating!
 
+BTC: *16gYbyaLibLV62o2EAhHHrAWN9yXmm1EAW*
+
+###License
+==
 Copyright (c) 2014 Daniel Boerlage and Philip Xu
 
 This program is free software: you can redistribute it and/or modify
