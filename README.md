@@ -17,11 +17,6 @@ Future supported types
 ##Screenshots
 ![alt tag](https://raw.github.com/DanielBoerlage/Implicit-Plotter/master/display.png)
 
-##Donations
-Please help support the project by donating! (coffee fund)
-
-BTC: **16gYbyaLibLV62o2EAhHHrAWN9yXmm1EAW**
-
 ##License
 Copyright (c) 2014 Daniel Boerlage and Philip Xu
 
